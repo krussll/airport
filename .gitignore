@@ -1,0 +1,22 @@
+# Build Outputs
+_site/
+.jekyll-cache/
+.jekyll-metadata/
+dist/
+build/
+.next/
+out/
+.astro/
+
+# Dependencies
+node_modules/
+.bundle/
+vendor/
+
+# Environment & OS
+.env
+.env.local
+.DS_Store
+Thumbs.db
+*.log
+

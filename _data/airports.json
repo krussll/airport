@@ -1,0 +1,1259 @@
+{
+  "PMI": {
+    "code": "PMI",
+    "icao": "LEPA",
+    "name": "Palma de Mallorca Airport",
+    "local_name": "Aeropuerto de Palma de Mallorca (Son Sant Joan)",
+    "city": "Palma",
+    "island": "Mallorca",
+    "region": "Balearic Islands",
+    "country": "Spain",
+    "country_code": "ES",
+    "operator": "Aena",
+    "timezone": "Europe/Madrid",
+    "last_verified": "2026-05-01",
+    "status_summary": "Major hub currently undergoing multi-phase terminal remodelling. Aena is piloting 3D CT scanners on select lanes, but standard passenger lanes require standard liquid and laptop removal.",
+    "scanner_status": {
+      "hardware_type": "2D_XRAY_HYBRID_TRIAL",
+      "hardware_label": "Phased 3D CT Scanner Trials (Select Lanes) / Standard 2D X-Ray (Dominant)",
+      "ct_scanners_deployed": true,
+      "ct_scanners_universal": false,
+      "liquids_in_bag": false,
+      "electronics_in_bag": false,
+      "temporary_eu_100ml_cap_applies": true,
+      "passenger_instruction": "Pack as if using legacy 2D X-ray: keep liquids under 100ml in a single 1L clear resealable bag and remove laptops and tablets at the checkpoint unless specifically instructed otherwise by security staff."
+    },
+    "checkpoint_rules": {
+      "liquids": {
+        "max_single_container_ml": 100,
+        "max_total_litres": 1.0,
+        "clear_bag_required": true,
+        "bag_dimensions": "Approx. 20cm x 20cm (1L capacity)",
+        "remove_from_carry_on": true,
+        "exemptions": "Baby food/milk and prescription medicines (with doctor note or prescription) required during the flight are permitted above 100ml but must be declared separately."
+      },
+      "electronics": {
+        "laptops_out": true,
+        "tablets_out": true,
+        "cameras_and_drones": "Place large camera bodies or drone chassis in separate plastic trays.",
+        "power_banks": "Cabin baggage only. Must not exceed 100Wh without airline authorization (max 160Wh with approval). Prohibited in checked hold luggage."
+      },
+      "physical_prep": {
+        "shoes": "Remove ankle-high boots, high heels, or thick platform soles. Standard sneakers and flat sandals usually remain on unless requested.",
+        "belts": "Remove metal buckle belts into tray.",
+        "outerwear": "Remove coats, jackets, hats, and heavy hoodies into trays.",
+        "smartwatches": "Standard smartwatches may typically remain on wrist unless passing through body scanner with secondary alerts."
+      }
+    },
+    "regional_hazards": [
+      {
+        "item_slug": "olive-oil",
+        "name": "Mallorcan Olive Oil (Oli de Mallorca)",
+        "category": "Liquid / Food",
+        "confiscation_risk": "critical",
+        "reason": "Liquid volume limit. Artisanal bottles and metal tins bought at markets exceed 100ml.",
+        "advice": "Pack in checked baggage wrapped in padded clothing, or buy after security at the duty-free shop in sealed STEB bags."
+      },
+      {
+        "item_slug": "local-spirits",
+        "name": "Hierbas Mallorquinas & Palo de Mallorca",
+        "category": "Alcohol / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Bottles over 100ml purchased outside the airport are confiscated at security.",
+        "advice": "Place in checked luggage or purchase post-security in the departures shopping concourse."
+      },
+      {
+        "item_slug": "sunscreen",
+        "name": "Large Sunscreen & Aftersun Lotions",
+        "category": "Cosmetics / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Top confiscated item in Mallorca. Even 200ml bottles that are half-empty are seized based on container capacity.",
+        "advice": "Decant into 100ml reusable travel bottles or leave remaining bottles behind."
+      },
+      {
+        "item_slug": "ensaimadas",
+        "name": "Ensaimadas (Traditional Mallorcan Pastry)",
+        "category": "Solid Food",
+        "confiscation_risk": "low",
+        "reason": "Passes security screening without restriction as a solid baked good.",
+        "advice": "Security permits them, but budget airlines (like Ryanair) may count the octagonal box as an extra piece of cabin baggage."
+      }
+    ],
+    "congestion_rhythms": {
+      "summary": "Intense seasonal peaks driven by concentrated UK and German charter package turnaround schedules.",
+      "peak_windows": [
+        {
+          "days": ["Friday", "Sunday"],
+          "hours": "11:30 - 17:30",
+          "severity": "extreme",
+          "recommended_arrival_lead_time_hours": 2.5,
+          "driver": "Mass European charter arrivals/departures and weekend turnover."
+        },
+        {
+          "days": ["Saturday"],
+          "hours": "09:00 - 14:30",
+          "severity": "high",
+          "recommended_arrival_lead_time_hours": 2.5,
+          "driver": "Holiday villa turnover flight waves."
+        },
+        {
+          "days": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "hours": "06:00 - 08:30",
+          "severity": "moderate",
+          "recommended_arrival_lead_time_hours": 2.0,
+          "driver": "Mainland commuter flights to Madrid and Barcelona."
+        }
+      ]
+    },
+    "terminals": [
+      {
+        "terminal_id": "central-departures",
+        "name": "Main Terminal (Central Security Hall)",
+        "location": "Level 4 Departures",
+        "serves": "All Modules (A, B, C, D)",
+        "scanner_type": "2D X-Ray (with selective 3D CT trial lanes)"
+      }
+    ],
+    "data_references": [
+      {
+        "title": "Aena Official Palma de Mallorca Airport Portal",
+        "url": "https://www.aena.es/en/palma-de-mallorca.html",
+        "type": "official_operator"
+      },
+      {
+        "title": "Aena Passenger Security Controls & Hand Luggage Rules",
+        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "type": "official_security_policy"
+      },
+      {
+        "title": "Aena Luggage Rules & Prohibited Items",
+        "url": "https://www.aena.es/en/passengers/baggage/hand-luggage.html",
+        "type": "official_baggage_policy"
+      },
+      {
+        "title": "European Commission Re-imposition of 100ml Limit on C3 Scanners (Sept 1, 2024)",
+        "url": "https://transport.ec.europa.eu/news-events/news/aviation-security-eu-temporarily-reintroduces-restrictions-liquid-screening-airports-c3-scanners-2024-07-31_en",
+        "type": "regulatory_authority"
+      }
+    ]
+  },
+  "IBZ": {
+    "code": "IBZ",
+    "icao": "LEIB",
+    "name": "Ibiza Airport",
+    "local_name": "Aeropuerto de Ibiza",
+    "city": "Ibiza Town (Eivissa)",
+    "island": "Ibiza",
+    "region": "Balearic Islands",
+    "country": "Spain",
+    "country_code": "ES",
+    "operator": "Aena",
+    "timezone": "Europe/Madrid",
+    "last_verified": "2026-05-01",
+    "status_summary": "Single-terminal seasonal island airport experiencing extreme peak congestion during summer clubbing weekends. Standard 2D X-ray screening on all regular passenger lanes.",
+    "scanner_status": {
+      "hardware_type": "2D_XRAY",
+      "hardware_label": "Standard Conventional 2D X-Ray Screening",
+      "ct_scanners_deployed": false,
+      "ct_scanners_universal": false,
+      "liquids_in_bag": false,
+      "electronics_in_bag": false,
+      "temporary_eu_100ml_cap_applies": true,
+      "passenger_instruction": "Strict removal required: take out all liquids (under 100ml in transparent 1L bag) and place laptops, tablets, and gaming consoles in separate security trays."
+    },
+    "checkpoint_rules": {
+      "liquids": {
+        "max_single_container_ml": 100,
+        "max_total_litres": 1.0,
+        "clear_bag_required": true,
+        "bag_dimensions": "20cm x 20cm (1L capacity)",
+        "remove_from_carry_on": true,
+        "exemptions": "Medicines and infant formula declared separately."
+      },
+      "electronics": {
+        "laptops_out": true,
+        "tablets_out": true,
+        "cameras_and_drones": "Separate trays for professional cameras, DJ equipment, and audio gear.",
+        "power_banks": "Cabin baggage only (max 100Wh). Prohibited in checked luggage."
+      },
+      "physical_prep": {
+        "shoes": "Platform shoes, festival boots, and metal-reinforced footwear must be scanned in trays.",
+        "belts": "Remove metal belts.",
+        "outerwear": "Remove hoodies, festival jackets, and sunglasses.",
+        "smartwatches": "Typically permitted on wrist."
+      }
+    },
+    "regional_hazards": [
+      {
+        "item_slug": "local-spirits",
+        "name": "Hierbas Ibicencas (Herbal Liqueur)",
+        "category": "Alcohol / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Famous aniseed herb liqueur bottled in 500ml/1L formats; seized at security if in cabin baggage.",
+        "advice": "Check in your suitcase or buy from Ibiza airport duty-free post-security."
+      },
+      {
+        "item_slug": "olive-oil",
+        "name": "Ibiza Sea Salt & Island Olive Oil",
+        "category": "Food / Liquid",
+        "confiscation_risk": "high",
+        "reason": "Oils are liquid (>100ml confiscated). Artisanal sea salt in large jars may trigger powder secondary inspection.",
+        "advice": "Keep salts in checked luggage or small containers; oils must be checked."
+      },
+      {
+        "item_slug": "sunscreen",
+        "name": "Sun Cream, Bronzing Oils & Glitter Lotions",
+        "category": "Cosmetics / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Bottles over 100ml cannot enter security lanes.",
+        "advice": "Decant into travel bottles before heading to the airport."
+      }
+    ],
+    "congestion_rhythms": {
+      "summary": "Sharply concentrated congestion corresponding to weekend club event check-outs and European charter turnaround schedules.",
+      "peak_windows": [
+        {
+          "days": ["Sunday", "Monday"],
+          "hours": "14:00 - 20:00",
+          "severity": "extreme",
+          "recommended_arrival_lead_time_hours": 2.5,
+          "driver": "Massive post-weekend departure wave of European clubbers and package travelers."
+        },
+        {
+          "days": ["Friday"],
+          "hours": "16:00 - 21:00",
+          "severity": "high",
+          "recommended_arrival_lead_time_hours": 2.0,
+          "driver": "Inbound/outbound weekend rotation."
+        }
+      ]
+    },
+    "terminals": [
+      {
+        "terminal_id": "main",
+        "name": "Main Passenger Terminal",
+        "location": "First Floor Departures",
+        "serves": "All domestic and international departures",
+        "scanner_type": "Conventional 2D X-ray"
+      }
+    ],
+    "data_references": [
+      {
+        "title": "Aena Official Ibiza Airport Portal",
+        "url": "https://www.aena.es/en/ibiza.html",
+        "type": "official_operator"
+      },
+      {
+        "title": "Aena Passenger Security Controls Information",
+        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "type": "official_security_policy"
+      },
+      {
+        "title": "Aena Hand Luggage Guidelines",
+        "url": "https://www.aena.es/en/passengers/baggage/hand-luggage.html",
+        "type": "official_baggage_policy"
+      }
+    ]
+  },
+  "MAH": {
+    "code": "MAH",
+    "icao": "LEMH",
+    "name": "Menorca Airport",
+    "local_name": "Aeropuerto de Menorca (Mahón)",
+    "city": "Mahón",
+    "island": "Menorca",
+    "region": "Balearic Islands",
+    "country": "Spain",
+    "country_code": "ES",
+    "operator": "Aena",
+    "timezone": "Europe/Madrid",
+    "last_verified": "2026-05-01",
+    "status_summary": "Relaxed family-oriented island airport with conventional 2D X-ray security. High summer weekend surges during package holiday turnaround hours.",
+    "scanner_status": {
+      "hardware_type": "2D_XRAY",
+      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
+      "ct_scanners_deployed": false,
+      "ct_scanners_universal": false,
+      "liquids_in_bag": false,
+      "electronics_in_bag": false,
+      "temporary_eu_100ml_cap_applies": true,
+      "passenger_instruction": "Standard screening: liquids under 100ml in transparent 1L zip bag and laptops/tablets removed into trays."
+    },
+    "checkpoint_rules": {
+      "liquids": {
+        "max_single_container_ml": 100,
+        "max_total_litres": 1.0,
+        "clear_bag_required": true,
+        "bag_dimensions": "20cm x 20cm (1L capacity)",
+        "remove_from_carry_on": true,
+        "exemptions": "Baby foods, sterilised water, and prescription medicines permitted with declaration."
+      },
+      "electronics": {
+        "laptops_out": true,
+        "tablets_out": true,
+        "cameras_and_drones": "Tablets, e-readers, and laptops out.",
+        "power_banks": "Cabin baggage only, max 100Wh."
+      },
+      "physical_prep": {
+        "shoes": "Hiking boots and thick-soled shoes must be scanned in trays.",
+        "belts": "Remove metal belts.",
+        "outerwear": "Remove light jackets and cardigans.",
+        "smartwatches": "Allowed on wrist."
+      }
+    },
+    "regional_hazards": [
+      {
+        "item_slug": "local-spirits",
+        "name": "Gin Xoriguer (Menorcan Mahón Gin)",
+        "category": "Alcohol / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Iconic clay and glass bottles of Mahón gin are confiscated if over 100ml in hand luggage.",
+        "advice": "Pack bottles in checked luggage or buy post-security at Menorca duty-free."
+      },
+      {
+        "item_slug": "feta-cheese",
+        "name": "Mahón-Menorca Cheese (Formatge de Maó)",
+        "category": "Food / Cheese",
+        "confiscation_risk": "moderate",
+        "reason": "Hard/cured varieties are solid and permitted. Soft or semi-cured cheese packed with oils/liquids may trigger confiscation.",
+        "advice": "Ensure cheese is cured and solid; avoid liquid or brine packaging in cabin bags."
+      },
+      {
+        "item_slug": "sunscreen",
+        "name": "Family Size Sun Protection Lotions",
+        "category": "Cosmetics / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Containers $>100$ml seized regardless of remaining contents.",
+        "advice": "Place in checked luggage."
+      }
+    ],
+    "congestion_rhythms": {
+      "summary": "Pronounced family holiday changeover waves on Fridays, Saturdays, and Sundays.",
+      "peak_windows": [
+        {
+          "days": ["Friday", "Sunday"],
+          "hours": "10:30 - 15:30",
+          "severity": "high",
+          "recommended_arrival_lead_time_hours": 2.0,
+          "driver": "UK, German, and domestic mainland package flights."
+        }
+      ]
+    },
+    "terminals": [
+      {
+        "terminal_id": "main",
+        "name": "Main Terminal",
+        "location": "First Floor Departures",
+        "serves": "All commercial flights",
+        "scanner_type": "Conventional 2D X-ray"
+      }
+    ],
+    "data_references": [
+      {
+        "title": "Aena Official Menorca Airport Portal",
+        "url": "https://www.aena.es/en/menorca.html",
+        "type": "official_operator"
+      },
+      {
+        "title": "Aena Security Controls Guide",
+        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "type": "official_security_policy"
+      }
+    ]
+  },
+  "TFS": {
+    "code": "TFS",
+    "icao": "GCTS",
+    "name": "Tenerife South Airport",
+    "local_name": "Aeropuerto de Tenerife Sur (Reina Sofía)",
+    "city": "Granadilla de Abona",
+    "island": "Tenerife",
+    "region": "Canary Islands",
+    "country": "Spain",
+    "country_code": "ES",
+    "operator": "Aena",
+    "timezone": "Atlantic/Canary",
+    "last_verified": "2026-05-01",
+    "status_summary": "The Canary Islands' primary international tourist gateway. Operates standard 2D X-ray security lanes with intense Tuesday and Friday charter congestion spikes.",
+    "scanner_status": {
+      "hardware_type": "2D_XRAY",
+      "hardware_label": "Conventional Multi-Lane 2D X-Ray Screening",
+      "ct_scanners_deployed": false,
+      "ct_scanners_universal": false,
+      "liquids_in_bag": false,
+      "electronics_in_bag": false,
+      "temporary_eu_100ml_cap_applies": true,
+      "passenger_instruction": "Remove liquids under 100ml in transparent 1L plastic bag and take out all laptops, tablets, and gaming consoles into trays."
+    },
+    "checkpoint_rules": {
+      "liquids": {
+        "max_single_container_ml": 100,
+        "max_total_litres": 1.0,
+        "clear_bag_required": true,
+        "bag_dimensions": "20cm x 20cm (1L capacity)",
+        "remove_from_carry_on": true,
+        "exemptions": "Medicines with prescription and baby food permitted with secondary screening."
+      },
+      "electronics": {
+        "laptops_out": true,
+        "tablets_out": true,
+        "cameras_and_drones": "Separate trays for laptops, tablets, and handheld electronics.",
+        "power_banks": "Cabin baggage only, strictly prohibited in checked hold luggage."
+      },
+      "physical_prep": {
+        "shoes": "Hiking boots, platform trainers, and boots must be taken off.",
+        "belts": "Remove metal belts.",
+        "outerwear": "Remove jackets, hoodies, and sun hats.",
+        "smartwatches": "Allowed on wrist."
+      }
+    },
+    "regional_hazards": [
+      {
+        "item_slug": "local-spirits",
+        "name": "Ron Miel (Canarian Honey Rum) & Banana Liqueur",
+        "category": "Alcohol / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Very popular souvenir bottles exceed 100ml and are confiscated at checkpoint.",
+        "advice": "Pack in checked luggage or buy after security at the Canariensis duty-free shop."
+      },
+      {
+        "item_slug": "olive-oil",
+        "name": "Mojo Picón / Mojo Verde Sauces",
+        "category": "Food / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Canarian mojo sauce is classified as a liquid/gel. Jars exceeding 100ml are confiscated.",
+        "advice": "Check all mojo jars in hold baggage or purchase inside duty-free."
+      },
+      {
+        "item_slug": "artisanal-salts-sands",
+        "name": "Volcanic Sand & Rocks from Teide National Park",
+        "category": "Mineral / Nature Souvenir",
+        "confiscation_risk": "critical",
+        "reason": "Removing natural sand or volcanic rocks from Tenerife's protected beaches/parks is illegal under Spanish environmental law and subject to confiscation and fines.",
+        "advice": "Never collect natural sand or volcanic stones as souvenirs."
+      },
+      {
+        "item_slug": "sunscreen",
+        "name": "Aloe Vera Gels & Aftersun Lotions",
+        "category": "Cosmetics / Gel",
+        "confiscation_risk": "critical",
+        "reason": "Local pure aloe vera gels sold in 250ml tubs will be seized.",
+        "advice": "Pack in checked luggage."
+      }
+    ],
+    "congestion_rhythms": {
+      "summary": "Distinct weekly rhythm dictated by UK and northern European tour operator flight schedules.",
+      "peak_windows": [
+        {
+          "days": ["Tuesday", "Friday"],
+          "hours": "11:00 - 17:00",
+          "severity": "extreme",
+          "recommended_arrival_lead_time_hours": 2.5,
+          "driver": "Major UK package holiday changeover (Jet2, TUI, EasyJet, British Airways charter banks)."
+        },
+        {
+          "days": ["Sunday"],
+          "hours": "12:00 - 18:00",
+          "severity": "high",
+          "recommended_arrival_lead_time_hours": 2.5,
+          "driver": "German and Nordic charter departure bank."
+        }
+      ]
+    },
+    "terminals": [
+      {
+        "terminal_id": "main",
+        "name": "Main Passenger Terminal",
+        "location": "First Floor Departures",
+        "serves": "All international and inter-island flights",
+        "scanner_type": "Conventional 2D X-ray"
+      }
+    ],
+    "data_references": [
+      {
+        "title": "Aena Official Tenerife Sur Airport Portal",
+        "url": "https://www.aena.es/en/tenerife-sur.html",
+        "type": "official_operator"
+      },
+      {
+        "title": "Aena Security Screening Instructions",
+        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "type": "official_security_policy"
+      }
+    ]
+  },
+  "ACE": {
+    "code": "ACE",
+    "icao": "GCRR",
+    "name": "Lanzarote Airport",
+    "local_name": "Aeropuerto César Manrique-Lanzarote",
+    "city": "San Bartolomé / Arrecife",
+    "island": "Lanzarote",
+    "region": "Canary Islands",
+    "country": "Spain",
+    "country_code": "ES",
+    "operator": "Aena",
+    "timezone": "Atlantic/Canary",
+    "last_verified": "2026-05-01",
+    "status_summary": "Two terminals: Terminal 1 serves all international and mainland Spanish flights; Terminal 2 serves inter-island flights. Conventional 2D X-ray screening.",
+    "scanner_status": {
+      "hardware_type": "2D_XRAY",
+      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
+      "ct_scanners_deployed": false,
+      "ct_scanners_universal": false,
+      "liquids_in_bag": false,
+      "electronics_in_bag": false,
+      "temporary_eu_100ml_cap_applies": true,
+      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and bulky electronic devices."
+    },
+    "checkpoint_rules": {
+      "liquids": {
+        "max_single_container_ml": 100,
+        "max_total_litres": 1.0,
+        "clear_bag_required": true,
+        "bag_dimensions": "20cm x 20cm (1L capacity)",
+        "remove_from_carry_on": true,
+        "exemptions": "Prescription liquid medicines and baby milk/food."
+      },
+      "electronics": {
+        "laptops_out": true,
+        "tablets_out": true,
+        "cameras_and_drones": "Electronic items must be removed into trays.",
+        "power_banks": "Carry-on only, strictly prohibited in checked hold baggage."
+      },
+      "physical_prep": {
+        "shoes": "Hiking boots and thick soles require tray scanning.",
+        "belts": "Remove metal belts.",
+        "outerwear": "Remove outerwear and hats.",
+        "smartwatches": "Allowed on wrist."
+      }
+    },
+    "regional_hazards": [
+      {
+        "item_slug": "local-spirits",
+        "name": "Malvasía Volcanic Wine & Canarian Rum",
+        "category": "Alcohol / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Famous La Geria volcanic vineyard wine bottles exceed 100ml and cannot pass security.",
+        "advice": "Pack securely in checked luggage or buy inside Terminal 1 duty-free after security."
+      },
+      {
+        "item_slug": "artisanal-salts-sands",
+        "name": "Volcanic Black Sand & Olivine Crystals",
+        "category": "Mineral / Nature Souvenir",
+        "confiscation_risk": "critical",
+        "reason": "Taking volcanic sand or natural olivine from Lanzarote beaches/parks is illegal under Spanish biodiversity laws.",
+        "advice": "Do not collect natural sand, pebbles, or volcanic rocks."
+      },
+      {
+        "item_slug": "olive-oil",
+        "name": "Canarian Mojo Sauces & Jams",
+        "category": "Food / Gel",
+        "confiscation_risk": "critical",
+        "reason": "Mojo sauce in glass jars exceeds 100ml and is seized.",
+        "advice": "Check in hold baggage or purchase post-security."
+      }
+    ],
+    "congestion_rhythms": {
+      "summary": "Major Thursday and Sunday spikes due to UK and Irish package charter changeovers.",
+      "peak_windows": [
+        {
+          "days": ["Thursday", "Sunday"],
+          "hours": "11:30 - 16:30",
+          "severity": "extreme",
+          "recommended_arrival_lead_time_hours": 2.5,
+          "driver": "Concentrated UK and Irish package turnaround flights (T1 Departures)."
+        }
+      ]
+    },
+    "terminals": [
+      {
+        "terminal_id": "t1",
+        "name": "Terminal 1 (T1)",
+        "location": "Upper Level Departures",
+        "serves": "All international, UK, and mainland Spain flights",
+        "scanner_type": "Conventional 2D X-ray"
+      },
+      {
+        "terminal_id": "t2",
+        "name": "Terminal 2 (T2)",
+        "location": "Ground Level",
+        "serves": "Inter-Canary island flights (Binter, Canaryfly)",
+        "scanner_type": "Conventional 2D X-ray"
+      }
+    ],
+    "data_references": [
+      {
+        "title": "Aena Official Lanzarote Airport Portal",
+        "url": "https://www.aena.es/en/cesar-manrique-lanzarote.html",
+        "type": "official_operator"
+      },
+      {
+        "title": "Aena Passenger Security Control Regulations",
+        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "type": "official_security_policy"
+      }
+    ]
+  },
+  "FUE": {
+    "code": "FUE",
+    "icao": "GCFV",
+    "name": "Fuerteventura Airport",
+    "local_name": "Aeropuerto de Fuerteventura (El Matorral)",
+    "city": "Puerto del Rosario",
+    "island": "Fuerteventura",
+    "region": "Canary Islands",
+    "country": "Spain",
+    "country_code": "ES",
+    "operator": "Aena",
+    "timezone": "Atlantic/Canary",
+    "last_verified": "2026-05-01",
+    "status_summary": "Single modern terminal catering heavily to European water sports enthusiasts and package tourists. Conventional 2D X-ray security checkpoint.",
+    "scanner_status": {
+      "hardware_type": "2D_XRAY",
+      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
+      "ct_scanners_deployed": false,
+      "ct_scanners_universal": false,
+      "liquids_in_bag": false,
+      "electronics_in_bag": false,
+      "temporary_eu_100ml_cap_applies": true,
+      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and drone batteries."
+    },
+    "checkpoint_rules": {
+      "liquids": {
+        "max_single_container_ml": 100,
+        "max_total_litres": 1.0,
+        "clear_bag_required": true,
+        "bag_dimensions": "20cm x 20cm (1L capacity)",
+        "remove_from_carry_on": true,
+        "exemptions": "Medicines and infant nutrition declared separately."
+      },
+      "electronics": {
+        "laptops_out": true,
+        "tablets_out": true,
+        "cameras_and_drones": "Drones and action cameras out into trays.",
+        "power_banks": "Cabin baggage only, max 100Wh."
+      },
+      "physical_prep": {
+        "shoes": "Hiking/sports boots and thick soles into trays.",
+        "belts": "Remove metal belts.",
+        "outerwear": "Remove outerwear.",
+        "smartwatches": "Allowed on wrist."
+      }
+    },
+    "regional_hazards": [
+      {
+        "item_slug": "feta-cheese",
+        "name": "Majorero Goat Cheese (Queso Majorero)",
+        "category": "Food / Cheese",
+        "confiscation_risk": "moderate",
+        "reason": "Hard/cured Majorero wheels pass security without issue. Soft/fresh goat cheeses or cheese preserved in oil are considered liquids/gels.",
+        "advice": "Stick to cured/semi-cured solid wheels or pack in checked luggage."
+      },
+      {
+        "item_slug": "local-spirits",
+        "name": "Canarian Honey Rum (Ron Miel)",
+        "category": "Alcohol / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Bottles over 100ml confiscated at checkpoint.",
+        "advice": "Pack in checked luggage or purchase in duty-free after security."
+      },
+      {
+        "item_slug": "artisanal-salts-sands",
+        "name": "Corralejo White Sand & Popcorn Beach Fossils",
+        "category": "Mineral / Nature Souvenir",
+        "confiscation_risk": "critical",
+        "reason": "Popcorn Beach (Playa del Bajo de la Burra) rhodolith fossils and white sand are strictly protected. Removing them is illegal and penalised by Guardia Civil.",
+        "advice": "Do not take rhodoliths or beach sand under any circumstances."
+      }
+    ],
+    "congestion_rhythms": {
+      "summary": "Intense Wednesday, Saturday, and Sunday peaks aligned with German and UK package flight turnovers.",
+      "peak_windows": [
+        {
+          "days": ["Wednesday", "Saturday"],
+          "hours": "11:00 - 16:30",
+          "severity": "high",
+          "recommended_arrival_lead_time_hours": 2.5,
+          "driver": "Heavy German and UK holiday flight banks."
+        }
+      ]
+    },
+    "terminals": [
+      {
+        "terminal_id": "main",
+        "name": "Main Terminal",
+        "location": "Upper Level Departures",
+        "serves": "All commercial operations",
+        "scanner_type": "Conventional 2D X-ray"
+      }
+    ],
+    "data_references": [
+      {
+        "title": "Aena Official Fuerteventura Airport Portal",
+        "url": "https://www.aena.es/en/fuerteventura.html",
+        "type": "official_operator"
+      },
+      {
+        "title": "Aena Security Checkpoint Regulations",
+        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "type": "official_security_policy"
+      }
+    ]
+  },
+  "HER": {
+    "code": "HER",
+    "icao": "LGIR",
+    "name": "Heraklion International Airport",
+    "local_name": "Kratikos Aerolimenas Irakleiou 'Nikos Kazantzakis'",
+    "city": "Heraklion",
+    "island": "Crete",
+    "region": "Crete",
+    "country": "Greece",
+    "country_code": "GR",
+    "operator": "HCAA (Hellenic Civil Aviation Authority)",
+    "timezone": "Europe/Athens",
+    "last_verified": "2026-05-01",
+    "status_summary": "Crete's primary airport and one of Greece's busiest. Aging terminal infrastructure operating legacy 2D X-ray systems with notoriously high summer confiscation rates for Cretan olive oil, honey, and raki.",
+    "scanner_status": {
+      "hardware_type": "2D_XRAY",
+      "hardware_label": "Legacy Conventional 2D X-Ray Screening",
+      "ct_scanners_deployed": false,
+      "ct_scanners_universal": false,
+      "liquids_in_bag": false,
+      "electronics_in_bag": false,
+      "temporary_eu_100ml_cap_applies": true,
+      "passenger_instruction": "Strict manual unpack: All liquids must be in 100ml containers inside a clear 1L resealable bag. Laptops, tablets, and large electronics must be placed in separate trays."
+    },
+    "checkpoint_rules": {
+      "liquids": {
+        "max_single_container_ml": 100,
+        "max_total_litres": 1.0,
+        "clear_bag_required": true,
+        "bag_dimensions": "20cm x 20cm (1L capacity)",
+        "remove_from_carry_on": true,
+        "exemptions": "Essential medicines and infant formula accompanied by a guardian."
+      },
+      "electronics": {
+        "laptops_out": true,
+        "tablets_out": true,
+        "cameras_and_drones": "Laptops and tablets in separate individual trays.",
+        "power_banks": "Cabin baggage only, max 100Wh. Forbidden in checked hold luggage."
+      },
+      "physical_prep": {
+        "shoes": "Boots and thick soles must be scanned in trays.",
+        "belts": "Remove metal belts.",
+        "outerwear": "Remove outerwear, jackets, and hats.",
+        "smartwatches": "Allowed on wrist."
+      }
+    },
+    "regional_hazards": [
+      {
+        "item_slug": "olive-oil",
+        "name": "Cretan Extra Virgin Olive Oil (Kolymvari / Sitia)",
+        "category": "Liquid / Food",
+        "confiscation_risk": "critical",
+        "reason": "Top confiscated item in Greece. Hundreds of litres seized weekly. Metal tins, glass bottles, and farm-fresh jugs over 100ml are strictly confiscated.",
+        "advice": "Must be packed in checked hold luggage (double-bagged in plastic) or purchased after security inside the Hellenic Duty Free Shops in a sealed STEB bag."
+      },
+      {
+        "item_slug": "honey",
+        "name": "Cretan Thyme Honey (Thymarisio Meli)",
+        "category": "Liquid / Viscous Food",
+        "confiscation_risk": "critical",
+        "reason": "Honey is legally classified as a liquid/gel under EU aviation security rules. Jars over 100ml are seized without exception.",
+        "advice": "Pack in checked baggage or buy inside post-security duty-free."
+      },
+      {
+        "item_slug": "feta-cheese",
+        "name": "Feta & Graviera Cheese in Brine / Olive Oil",
+        "category": "Food / Cheese",
+        "confiscation_risk": "critical",
+        "reason": "Cheese packed in brine or oil is deemed a liquid. Soft cheese (like Mizithra or Anthotyros) is also treated as a paste/gel.",
+        "advice": "Vacuum-packed hard cured Graviera or Kefalotyri passes security; brine-packed or soft cheese must be checked in the hold."
+      },
+      {
+        "item_slug": "local-spirits",
+        "name": "Cretan Tsikoudia (Raki) & Ouzo",
+        "category": "Alcohol / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Artisanal plastic bottles or souvenir glass flasks over 100ml are confiscated.",
+        "advice": "Pack in checked luggage or purchase inside the airport duty-free shop."
+      }
+    ],
+    "congestion_rhythms": {
+      "summary": "Severe congestion during peak summer charter flight turnaround waves, exacerbated by compact terminal space.",
+      "peak_windows": [
+        {
+          "days": ["Tuesday", "Friday", "Sunday"],
+          "hours": "10:00 - 18:00",
+          "severity": "extreme",
+          "recommended_arrival_lead_time_hours": 3.0,
+          "driver": "Mass charter turnaround banks for UK, German, French, and Polish package flights."
+        },
+        {
+          "days": ["Saturday"],
+          "hours": "11:00 - 17:00",
+          "severity": "extreme",
+          "recommended_arrival_lead_time_hours": 3.0,
+          "driver": "Intense summer package turnover."
+        }
+      ]
+    },
+    "terminals": [
+      {
+        "terminal_id": "main",
+        "name": "Main Passenger Terminal",
+        "location": "Ground Floor Departures",
+        "serves": "All domestic and international departures",
+        "scanner_type": "Legacy 2D X-ray"
+      }
+    ],
+    "data_references": [
+      {
+        "title": "HCAA Official Heraklion Airport Directory",
+        "url": "http://www.ypa.gr/en/our-airports/kratikos-aerolimenas-hrakleioy-n-kazantzakhs-kahk",
+        "type": "official_operator"
+      },
+      {
+        "title": "Hellenic Civil Aviation Passenger Security Regulations",
+        "url": "http://www.ypa.gr/en/passenger-info/security-rules/",
+        "type": "official_security_policy"
+      },
+      {
+        "title": "EASA European Aviation Safety Agency Passenger Security Guidelines",
+        "url": "https://www.easa.europa.eu/en/passengers",
+        "type": "regulatory_authority"
+      }
+    ]
+  },
+  "CHQ": {
+    "code": "CHQ",
+    "icao": "LGSA",
+    "name": "Chania International Airport",
+    "local_name": "Aerolimenas Chanion 'Ioannis Daskalogiannis'",
+    "city": "Chania",
+    "island": "Crete",
+    "region": "Crete",
+    "country": "Greece",
+    "country_code": "GR",
+    "operator": "Fraport Greece",
+    "timezone": "Europe/Athens",
+    "last_verified": "2026-05-01",
+    "status_summary": "Modernised terminal managed by Fraport Greece. Operates conventional 2D X-ray security lanes with strict confiscation of local olive oils and raki.",
+    "scanner_status": {
+      "hardware_type": "2D_XRAY",
+      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
+      "ct_scanners_deployed": false,
+      "ct_scanners_universal": false,
+      "liquids_in_bag": false,
+      "electronics_in_bag": false,
+      "temporary_eu_100ml_cap_applies": true,
+      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and e-readers."
+    },
+    "checkpoint_rules": {
+      "liquids": {
+        "max_single_container_ml": 100,
+        "max_total_litres": 1.0,
+        "clear_bag_required": true,
+        "bag_dimensions": "20cm x 20cm (1L capacity)",
+        "remove_from_carry_on": true,
+        "exemptions": "Medicines and baby milk."
+      },
+      "electronics": {
+        "laptops_out": true,
+        "tablets_out": true,
+        "cameras_and_drones": "Electronic items out into separate trays.",
+        "power_banks": "Cabin baggage only, max 100Wh."
+      },
+      "physical_prep": {
+        "shoes": "Hiking boots and thick soles require separate tray scanning.",
+        "belts": "Remove metal belts.",
+        "outerwear": "Remove outerwear.",
+        "smartwatches": "Allowed on wrist."
+      }
+    },
+    "regional_hazards": [
+      {
+        "item_slug": "olive-oil",
+        "name": "Chania Extra Virgin Olive Oil (Chania PGI)",
+        "category": "Liquid / Food",
+        "confiscation_risk": "critical",
+        "reason": "Bottles and tins $>100$ml confiscated at checkpoint.",
+        "advice": "Pack in checked luggage or buy inside post-security duty-free."
+      },
+      {
+        "item_slug": "local-spirits",
+        "name": "Cretan Raki / Tsikoudia",
+        "category": "Alcohol / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Artisanal spirit bottles over 100ml confiscated.",
+        "advice": "Pack in checked hold baggage."
+      },
+      {
+        "item_slug": "honey",
+        "name": "Cretan Pine & Thyme Honey",
+        "category": "Liquid / Food",
+        "confiscation_risk": "critical",
+        "reason": "Classified as liquid/gel; $>100$ml seized.",
+        "advice": "Pack in checked luggage."
+      }
+    ],
+    "congestion_rhythms": {
+      "summary": "Major Nordic, UK, and German charter turnover peaks on Wednesdays, Fridays, and Saturdays.",
+      "peak_windows": [
+        {
+          "days": ["Wednesday", "Saturday"],
+          "hours": "10:30 - 16:00",
+          "severity": "high",
+          "recommended_arrival_lead_time_hours": 2.5,
+          "driver": "Scandinavian and UK charter turnaround banks."
+        }
+      ]
+    },
+    "terminals": [
+      {
+        "terminal_id": "main",
+        "name": "Main Passenger Terminal",
+        "location": "Upper Level Departures",
+        "serves": "All commercial operations",
+        "scanner_type": "Conventional 2D X-ray"
+      }
+    ],
+    "data_references": [
+      {
+        "title": "Fraport Greece Official Chania Airport Portal",
+        "url": "https://www.chq-airport.gr/en/",
+        "type": "official_operator"
+      },
+      {
+        "title": "Fraport Greece Airport Security Guidelines",
+        "url": "https://www.chq-airport.gr/en/passenger-info/airport-security/",
+        "type": "official_security_policy"
+      },
+      {
+        "title": "Fraport Greece Dangerous Goods & Liquids Rules",
+        "url": "https://www.fraport-greece.com/eng/passenger-information/airport-security",
+        "type": "operator_corporate_policy"
+      }
+    ]
+  },
+  "RHO": {
+    "code": "RHO",
+    "icao": "LGRP",
+    "name": "Rhodes International Airport",
+    "local_name": "Diethnis Aerolimenas Rodou 'Diagoras'",
+    "city": "Paradisi / Rhodes Town",
+    "island": "Rhodes",
+    "region": "Dodecanese",
+    "country": "Greece",
+    "country_code": "GR",
+    "operator": "Fraport Greece",
+    "timezone": "Europe/Athens",
+    "last_verified": "2026-05-01",
+    "status_summary": "Extensively upgraded by Fraport Greece with modernised check-in and security hall, but utilizing conventional 2D X-ray lanes requiring liquid and laptop extraction.",
+    "scanner_status": {
+      "hardware_type": "2D_XRAY",
+      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
+      "ct_scanners_deployed": false,
+      "ct_scanners_universal": false,
+      "liquids_in_bag": false,
+      "electronics_in_bag": false,
+      "temporary_eu_100ml_cap_applies": true,
+      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and gaming devices."
+    },
+    "checkpoint_rules": {
+      "liquids": {
+        "max_single_container_ml": 100,
+        "max_total_litres": 1.0,
+        "clear_bag_required": true,
+        "bag_dimensions": "20cm x 20cm (1L capacity)",
+        "remove_from_carry_on": true,
+        "exemptions": "Prescription medicines and baby milk."
+      },
+      "electronics": {
+        "laptops_out": true,
+        "tablets_out": true,
+        "cameras_and_drones": "Electronic items out into separate trays.",
+        "power_banks": "Cabin baggage only, max 100Wh."
+      },
+      "physical_prep": {
+        "shoes": "Hiking boots, military boots, and thick platform soles must be scanned in trays.",
+        "belts": "Remove metal belts.",
+        "outerwear": "Remove outerwear.",
+        "smartwatches": "Allowed on wrist."
+      }
+    },
+    "regional_hazards": [
+      {
+        "item_slug": "olive-oil",
+        "name": "Rhodian Olive Oil",
+        "category": "Liquid / Food",
+        "confiscation_risk": "critical",
+        "reason": "Bottles and tins $>100$ml confiscated at checkpoint.",
+        "advice": "Pack in checked luggage or buy inside post-security duty-free."
+      },
+      {
+        "item_slug": "honey",
+        "name": "Rhodian Thyme & Pine Honey",
+        "category": "Liquid / Food",
+        "confiscation_risk": "critical",
+        "reason": "Honey is treated as a liquid/gel; $>100$ml seized.",
+        "advice": "Pack in checked luggage."
+      },
+      {
+        "item_slug": "local-spirits",
+        "name": "Souma (Rhodian Pomace Brandy) & Ouzo",
+        "category": "Alcohol / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Bottles over 100ml confiscated at checkpoint.",
+        "advice": "Pack in checked hold baggage or buy inside post-security duty-free."
+      }
+    ],
+    "congestion_rhythms": {
+      "summary": "Massive Wednesday, Saturday, and Sunday peaks aligned with UK, German, and Polish charter turnaround waves.",
+      "peak_windows": [
+        {
+          "days": ["Wednesday", "Saturday", "Sunday"],
+          "hours": "11:00 - 17:30",
+          "severity": "extreme",
+          "recommended_arrival_lead_time_hours": 2.5,
+          "driver": "Intense charter turnaround banks."
+        }
+      ]
+    },
+    "terminals": [
+      {
+        "terminal_id": "main",
+        "name": "Main Passenger Terminal",
+        "location": "First Floor Departures",
+        "serves": "All domestic and international departures",
+        "scanner_type": "Conventional 2D X-ray"
+      }
+    ],
+    "data_references": [
+      {
+        "title": "Fraport Greece Official Rhodes Airport Portal",
+        "url": "https://www.rho-airport.gr/en/",
+        "type": "official_operator"
+      },
+      {
+        "title": "Fraport Greece Rhodes Security Information",
+        "url": "https://www.rho-airport.gr/en/passenger-info/airport-security/",
+        "type": "official_security_policy"
+      }
+    ]
+  },
+  "CFU": {
+    "code": "CFU",
+    "icao": "LGKR",
+    "name": "Corfu International Airport",
+    "local_name": "Diethnis Aerolimenas Kerkyras 'Ioannis Kapodistrias'",
+    "city": "Corfu Town (Kerkyra)",
+    "island": "Corfu",
+    "region": "Ionian Islands",
+    "country": "Greece",
+    "country_code": "GR",
+    "operator": "Fraport Greece",
+    "timezone": "Europe/Athens",
+    "last_verified": "2026-05-01",
+    "status_summary": "Compact scenic island terminal upgraded by Fraport Greece with expanded security area, operating conventional 2D X-ray lanes. Severe peaks on Mondays and Fridays.",
+    "scanner_status": {
+      "hardware_type": "2D_XRAY",
+      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
+      "ct_scanners_deployed": false,
+      "ct_scanners_universal": false,
+      "liquids_in_bag": false,
+      "electronics_in_bag": false,
+      "temporary_eu_100ml_cap_applies": true,
+      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and e-readers."
+    },
+    "checkpoint_rules": {
+      "liquids": {
+        "max_single_container_ml": 100,
+        "max_total_litres": 1.0,
+        "clear_bag_required": true,
+        "bag_dimensions": "20cm x 20cm (1L capacity)",
+        "remove_from_carry_on": true,
+        "exemptions": "Prescription medicines and baby milk."
+      },
+      "electronics": {
+        "laptops_out": true,
+        "tablets_out": true,
+        "cameras_and_drones": "Electronic items out into separate trays.",
+        "power_banks": "Cabin baggage only, max 100Wh."
+      },
+      "physical_prep": {
+        "shoes": "Hiking boots and thick soles require tray scanning.",
+        "belts": "Remove metal belts.",
+        "outerwear": "Remove outerwear.",
+        "smartwatches": "Allowed on wrist."
+      }
+    },
+    "regional_hazards": [
+      {
+        "item_slug": "local-spirits",
+        "name": "Kumquat Liqueur & Corfu Limoncello",
+        "category": "Alcohol / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Corfu's trademark bright orange kumquat liqueur bottles are confiscated if over 100ml in hand luggage.",
+        "advice": "Pack in checked luggage or buy after security inside Hellenic Duty Free."
+      },
+      {
+        "item_slug": "olive-oil",
+        "name": "Corfiot Olive Oil (The Governor / Lianolia)",
+        "category": "Liquid / Food",
+        "confiscation_risk": "critical",
+        "reason": "High-phenolic Corfiot olive oil bottles exceed 100ml and are seized at checkpoint.",
+        "advice": "Pack securely in checked luggage or purchase post-security."
+      },
+      {
+        "item_slug": "sunscreen",
+        "name": "Sunscreen & Tanning Lotions",
+        "category": "Cosmetics / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Containers $>100$ml confiscated.",
+        "advice": "Pack in checked luggage."
+      }
+    ],
+    "congestion_rhythms": {
+      "summary": "Monday and Friday peaks are legendary due to UK package holiday turnaround flight schedules.",
+      "peak_windows": [
+        {
+          "days": ["Monday", "Friday"],
+          "hours": "10:30 - 17:00",
+          "severity": "extreme",
+          "recommended_arrival_lead_time_hours": 2.5,
+          "driver": "Concentrated UK and German charter turnaround flights."
+        }
+      ]
+    },
+    "terminals": [
+      {
+        "terminal_id": "main",
+        "name": "Main Passenger Terminal",
+        "location": "First Floor Departures",
+        "serves": "All domestic and international departures",
+        "scanner_type": "Conventional 2D X-ray"
+      }
+    ],
+    "data_references": [
+      {
+        "title": "Fraport Greece Official Corfu Airport Portal",
+        "url": "https://www.cfu-airport.gr/en/",
+        "type": "official_operator"
+      },
+      {
+        "title": "Fraport Greece Corfu Security Information",
+        "url": "https://www.cfu-airport.gr/en/passenger-info/airport-security/",
+        "type": "official_security_policy"
+      }
+    ]
+  },
+  "JTR": {
+    "code": "JTR",
+    "icao": "LGSR",
+    "name": "Santorini International Airport",
+    "local_name": "Kratikos Aerolimenas Santorinis (Thira)",
+    "city": "Kamari / Fira",
+    "island": "Santorini (Thira)",
+    "region": "Cyclades",
+    "country": "Greece",
+    "country_code": "GR",
+    "operator": "Fraport Greece",
+    "timezone": "Europe/Athens",
+    "last_verified": "2026-05-01",
+    "status_summary": "Expanded terminal modernised by Fraport Greece. Handles immense tourist flows with conventional 2D X-ray screening. Frequent confiscation of Assyrtiko wine, Vinsanto, and fava pastes.",
+    "scanner_status": {
+      "hardware_type": "2D_XRAY",
+      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
+      "ct_scanners_deployed": false,
+      "ct_scanners_universal": false,
+      "liquids_in_bag": false,
+      "electronics_in_bag": false,
+      "temporary_eu_100ml_cap_applies": true,
+      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and e-readers."
+    },
+    "checkpoint_rules": {
+      "liquids": {
+        "max_single_container_ml": 100,
+        "max_total_litres": 1.0,
+        "clear_bag_required": true,
+        "bag_dimensions": "20cm x 20cm (1L capacity)",
+        "remove_from_carry_on": true,
+        "exemptions": "Prescription medicines and baby milk."
+      },
+      "electronics": {
+        "laptops_out": true,
+        "tablets_out": true,
+        "cameras_and_drones": "Electronic items out into separate trays.",
+        "power_banks": "Cabin baggage only, max 100Wh."
+      },
+      "physical_prep": {
+        "shoes": "Hiking boots and thick soles require tray scanning.",
+        "belts": "Remove metal belts.",
+        "outerwear": "Remove outerwear.",
+        "smartwatches": "Allowed on wrist."
+      }
+    },
+    "regional_hazards": [
+      {
+        "item_slug": "local-spirits",
+        "name": "Vinsanto & Assyrtiko Santorini Wines",
+        "category": "Alcohol / Liquid",
+        "confiscation_risk": "critical",
+        "reason": "World-famous volcanic wine bottles exceed 100ml and cannot pass security.",
+        "advice": "Pack securely in checked luggage or buy inside post-security duty-free."
+      },
+      {
+        "item_slug": "feta-cheese",
+        "name": "Santorini Fava Bean Puree & Caper Pastes",
+        "category": "Food / Paste",
+        "confiscation_risk": "high",
+        "reason": "Jarred fava pastes, tapenades, and pickled caper leaves in brine are classified as liquids/pastes.",
+        "advice": "Dry dried fava beans are solid and allowed; jarred pastes must be checked in luggage."
+      },
+      {
+        "item_slug": "artisanal-salts-sands",
+        "name": "Red Beach & Black Beach Volcanic Pebbles / Sand",
+        "category": "Mineral / Nature Souvenir",
+        "confiscation_risk": "high",
+        "reason": "Taking volcanic pebbles or red/black sand is discouraged and bags of pebbles may be inspected or removed by security.",
+        "advice": "Leave volcanic sand and pebbles on the beaches."
+      }
+    ],
+    "congestion_rhythms": {
+      "summary": "Severe daily peak surges matching caldera tour check-outs, ferry transfers, and European charter flight rotations.",
+      "peak_windows": [
+        {
+          "days": ["Tuesday", "Friday", "Sunday"],
+          "hours": "11:00 - 16:30",
+          "severity": "extreme",
+          "recommended_arrival_lead_time_hours": 2.5,
+          "driver": "Hotel checkouts, ferry connections, and international charter departures."
+        }
+      ]
+    },
+    "terminals": [
+      {
+        "terminal_id": "main",
+        "name": "Main Passenger Terminal",
+        "location": "First Floor Departures",
+        "serves": "All domestic and international departures",
+        "scanner_type": "Conventional 2D X-ray"
+      }
+    ],
+    "data_references": [
+      {
+        "title": "Fraport Greece Official Santorini Airport Portal",
+        "url": "https://www.jtr-airport.gr/en/",
+        "type": "official_operator"
+      },
+      {
+        "title": "Fraport Greece Santorini Security Information",
+        "url": "https://www.jtr-airport.gr/en/passenger-info/airport-security/",
+        "type": "official_security_policy"
+      }
+    ]
+  }
+}
