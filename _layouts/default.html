@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% assign post_airport_code = page.airport_code | default: page.airport | upcase %}
+  {% assign post_airport = site.data.airports[post_airport_code] %}
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% elsif post_airport %}{{ post_airport.name }} ({{ post_airport.code }}) Security &amp; CT Scanner Guide | {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif post_airport %}{{ post_airport.status_summary | default: site.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈</text></svg>">
+</head>
+<body>
+
+  {% include header.html %}
+
+  <main class="main-content">
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+
+  {% include footer.html %}
+
+</body>
+</html>

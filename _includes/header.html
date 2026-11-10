@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a href="{{ site.baseurl }}/" class="site-brand">
+      <span class="site-logo-symbol">▲</span>
+      <span class="site-title">{{ site.title }}</span>
+    </a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="{{ site.baseurl }}/" {% if page.url=='/' %}class="active" {% endif %}>All Airports</a></li>
+        <li><a href="{{ site.baseurl }}/methodology/" {% if page.url=='/methodology/' %}class="active" {% endif
+            %}>Methodology
+          </a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

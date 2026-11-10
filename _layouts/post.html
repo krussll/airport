@@ -1,0 +1,499 @@
+---
+layout: default
+---
+
+{% assign airport_code = page.airport_code | default: page.airport | upcase %}
+{% assign airport = site.data.airports[airport_code] %}
+{% assign liquid_container_limit = airport.checkpoint_rules.liquids.max_single_container | default: airport.checkpoint_rules.liquids.max_single_container_ml %}
+{% if airport.checkpoint_rules.liquids.max_single_container_ml and airport.checkpoint_rules.liquids.max_single_container == nil %}
+  {% assign liquid_container_limit = airport.checkpoint_rules.liquids.max_single_container_ml | append: "ml" %}
+{% endif %}
+{% assign liquid_capacity_limit = airport.checkpoint_rules.liquids.max_total_capacity | default: airport.checkpoint_rules.liquids.max_total_litres %}
+{% if airport.checkpoint_rules.liquids.max_total_litres and airport.checkpoint_rules.liquids.max_total_capacity == nil %}
+  {% assign liquid_capacity_limit = airport.checkpoint_rules.liquids.max_total_litres | replace: ".0", "" | append: "l" %}
+{% endif %}
+{% assign liquid_capacity_limit_display = liquid_capacity_limit | upcase %}
+
+<article class="post">
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <span class="breadcrumb-separator">/</span>
+    <a href="{{ '/' | relative_url }}">Airports</a>
+    <span class="breadcrumb-separator">/</span>
+    <span>{% if airport %}{{ airport.code }} ({{ airport.name }}){% else %}{{ page.title }}{% endif %}</span>
+  </nav>
+
+  {% if airport %}
+  <!-- Airport Header & Metadata -->
+  <header class="airport-header">
+    <div class="airport-meta-top">
+      <span class="airport-code-badge">{{ airport.code }}</span>
+      <span class="badge badge-outline">{{ airport.icao }}</span>
+      <span class="badge badge-muted">{{ airport.country }} / {{ airport.region }}</span>
+      <span class="badge badge-muted">OPERATOR: {{ airport.operator }}</span>
+    </div>
+
+    <h1 class="airport-title">{{ airport.name }}</h1>
+    {% if airport.local_name %}
+    <div class="airport-native-name">{{ airport.local_name }}</div>
+    {% endif %}
+
+    <div class="airport-meta-bar">
+      <span class="meta-item"><span class="meta-label">Location:</span> {{ airport.city }}{% if airport.island and
+        airport.island != airport.city %}, {{ airport.island }}{% endif %}</span>
+      <span class="meta-item"><span class="meta-label">Timezone:</span> {{ airport.timezone }}</span>
+      <span class="meta-item"><span class="meta-label">Screening Standard:</span> {% if airport.country_code == 'ES' or
+        airport.country_code == 'GR' %}EU / EASA Mandate{% else %}Civil Aviation Standard{% endif %}</span>
+    </div>
+  </header>
+
+  {% if airport.scanner_status or airport.checkpoint_rules %}
+  <!-- Checkpoint Overview & Quick Verdict -->
+  <div class="verdict-box">
+    <div class="verdict-header">
+      <span>Checkpoint Overview</span>
+    </div>
+    <div class="verdict-grid">
+      <div class="verdict-col">
+        <div class="verdict-col-label">Liquids Rule</div>
+        <div class="verdict-col-value">
+          {% if airport.scanner_status.liquids_in_bag %}
+          Stay in Bag
+          {% elsif liquid_container_limit %}
+          {{ liquid_container_limit }} / Remove
+          {% else %}
+          Remove
+          {% endif %}
+        </div>
+        <div class="verdict-col-detail">
+          {% if airport.scanner_status.temporary_eu_100ml_cap_applies %}
+          Mandatory &le;{{ liquid_container_limit }} containers in {{ liquid_capacity_limit_display }} clear plastic bag.
+          {% elsif airport.scanner_status.liquids_in_bag %}
+          Liquids permitted in hand luggage without removal.
+          {% elsif liquid_container_limit %}
+          Containers over {{ liquid_container_limit }} strictly confiscated at security.
+          {% else %}
+          Standard liquid restrictions apply at security.
+          {% endif %}
+        </div>
+      </div>
+      <div class="verdict-col">
+        <div class="verdict-col-label">Electronics</div>
+        <div class="verdict-col-value">
+          {% if airport.scanner_status.electronics_in_bag %}
+          Stay in Bag
+          {% else %}
+          Separate Trays
+          {% endif %}
+        </div>
+        <div class="verdict-col-detail">
+          {% if airport.checkpoint_rules.electronics.laptops_out %}
+          Laptops &amp; tablets must be placed into separate trays.
+          {% else %}
+          Electronics may remain inside cabin luggage.
+          {% endif %}
+        </div>
+      </div>
+      <div class="verdict-col">
+        <div class="verdict-col-label">Clothing &amp; Shoes</div>
+        <div class="verdict-col-value">
+          Outerwear &amp; Boots Off
+        </div>
+        <div class="verdict-col-detail">
+          Jackets, coats, and belts into trays. Boots and thick soles removed; standard shoes stay on.
+        </div>
+      </div>
+    </div>
+    {% if airport.scanner_status.passenger_instruction %}
+    <div class="verdict-instruction">
+      <strong class="verdict-instruction-label">Summary:</strong>
+      <span class="verdict-instruction-text">{{ airport.scanner_status.passenger_instruction }}</span>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <!-- CHECKPOINT RULES DETAILED GRID -->
+  <section aria-labelledby="rules-heading">
+    <h2 id="rules-heading">Security Rules</h2>
+
+    <div class="rules-grid">
+      <!-- Liquids Card -->
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <span class="rule-card-title">Liquids &amp; Gels</span>
+          <span class="badge badge-outline">{% if liquid_container_limit %}{{
+            liquid_container_limit }} Limit{% else %}Standard Limit{% endif %}</span>
+        </div>
+        <ul class="rule-list">
+          <li class="rule-list-item">
+            <span class="rule-item-key">Container Limit</span>
+            <span class="rule-item-val"><strong>&le; {{ liquid_container_limit }}</strong> each</span>
+          </li>
+          <li class="rule-list-item">
+            <span class="rule-item-key">Total Capacity</span>
+            <span class="rule-item-val"><strong>{{ liquid_capacity_limit_display }}</strong> total
+              capacity</span>
+          </li>
+          <li class="rule-list-item">
+            <span class="rule-item-key">Plastic Bag</span>
+            <span class="rule-item-val">{% if airport.checkpoint_rules.liquids.clear_bag_required %}1 clear resealable
+              ({{ airport.checkpoint_rules.liquids.bag_dimensions }}){% else %}Not required{% endif %}</span>
+          </li>
+          <li class="rule-list-item">
+            <span class="rule-item-key">At Checkpoint</span>
+            <span class="rule-item-val">{% if airport.checkpoint_rules.liquids.remove_from_carry_on %}<strong>Remove to
+                tray</strong>{% else %}<strong>Leave in carry-on</strong>{% endif %}</span>
+          </li>
+          <li class="rule-list-item">
+            <span class="rule-item-key">Baby &amp; Meds</span>
+            <span class="rule-item-val" title="{{ airport.checkpoint_rules.liquids.exemptions }}">Exempt{% if liquid_container_limit %} (&gt;{{ liquid_container_limit }}
+              declared){% endif %}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Electronics Card -->
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <span class="rule-card-title">Electronics &amp; Power</span>
+          <span class="badge badge-outline">Tray Separation</span>
+        </div>
+        <ul class="rule-list">
+          <li class="rule-list-item">
+            <span class="rule-item-key">Laptops</span>
+            <span class="rule-item-val">{% if airport.checkpoint_rules.electronics.laptops_out %}<strong>Must
+                remove</strong> (tray){% else %}Leave in bag{% endif %}</span>
+          </li>
+          <li class="rule-list-item">
+            <span class="rule-item-key">Tablets / e-Readers</span>
+            <span class="rule-item-val">{% if airport.checkpoint_rules.electronics.tablets_out %}<strong>Must
+                remove</strong> (tray){% else %}Leave in bag{% endif %}</span>
+          </li>
+          <li class="rule-list-item">
+            <span class="rule-item-key">Power Banks</span>
+            <span class="rule-item-val" title="{{ airport.checkpoint_rules.electronics.power_banks }}">Cabin only{% if airport.checkpoint_rules.electronics.max_power_bank_wh %}
+              (&le;{{ airport.checkpoint_rules.electronics.max_power_bank_wh }}Wh){% endif %}</span>
+          </li>
+          <li class="rule-list-item">
+            <span class="rule-item-key">Cameras / Drones</span>
+            <span class="rule-item-val" title="{{ airport.checkpoint_rules.electronics.cameras_and_drones }}">Separate
+              plastic trays</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Attire & Physical Prep Card -->
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <span class="rule-card-title">Attire &amp; Physical Prep</span>
+          <span class="badge badge-outline">Trays &amp; Scanners</span>
+        </div>
+        <ul class="rule-list">
+          <li class="rule-list-item">
+            <span class="rule-item-key">Footwear</span>
+            <span class="rule-item-val" title="{{ airport.checkpoint_rules.physical_prep.shoes }}">Boots &amp; platform
+              soles off</span>
+          </li>
+          <li class="rule-list-item">
+            <span class="rule-item-key">Belts</span>
+            <span class="rule-item-val" title="{{ airport.checkpoint_rules.physical_prep.belts }}">Remove into
+              tray</span>
+          </li>
+          <li class="rule-list-item">
+            <span class="rule-item-key">Outerwear</span>
+            <span class="rule-item-val" title="{{ airport.checkpoint_rules.physical_prep.outerwear }}">Jackets &amp;
+              coats off</span>
+          </li>
+          <li class="rule-list-item">
+            <span class="rule-item-key">Smartwatches</span>
+            <span class="rule-item-val" title="{{ airport.checkpoint_rules.physical_prep.smartwatches }}">Remain on
+              wrist</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {% assign sec_ref = airport.data_references | where: "type", "official_security_policy" | first %}
+    {% unless sec_ref %}
+    {% assign sec_ref = airport.data_references | first %}
+    {% endunless %}
+    <div class="section-ref-bottom">
+      <div class="section-verification-meta">
+        {% if airport.last_ai_gathered %}
+        <span class="meta-item"><span class="meta-label">AI Gathered:</span> <a href="#verification-heading"
+            title="Jump to Verification Details" class="meta-date-link">{{ airport.last_ai_gathered }}</a></span>
+        {% endif %}
+        {% if airport.last_human_reviewed %}
+        {% if airport.last_ai_gathered %}<span class="ref-separator">·</span>{% endif %}
+        <span class="meta-item"><span class="meta-label">Human Reviewed:</span> <a href="#verification-heading"
+            title="Jump to Verification Details" class="meta-date-link">{{ airport.last_human_reviewed }}</a></span>
+        {% elsif airport.last_verified %}
+        {% if airport.last_ai_gathered %}<span class="ref-separator">·</span>{% endif %}
+        <span class="meta-item"><span class="meta-label">Verified:</span> <span class="meta-date-link">{{
+            airport.last_verified }}</span></span>
+        {% endif %}
+        <span class="ref-separator">·</span>
+        <span class="meta-item"><a href="{{ '/methodology/' | relative_url }}" class="meta-date-link"
+            title="Read our data collection and review methodology">Methodology</a></span>
+      </div>
+
+      {% if sec_ref %}
+      <div class="section-ref-link">
+        <span class="ref-label">Official Reference:</span>
+        <a href="{{ sec_ref.url }}" target="_blank" rel="noopener noreferrer">{{ sec_ref.title }} ↗</a>
+        <span class="ref-separator">·</span>
+        <a href="#sources-heading" class="ref-sources-jump">All Sources ↓</a>
+        <span class="ref-separator">·</span>
+        <a href="{{ '/methodology/' | relative_url }}" class="ref-sources-jump">Methodology &amp; Review →</a>
+      </div>
+      {% elsif airport.data_references %}
+      <div class="section-ref-link">
+        <a href="#sources-heading" class="ref-sources-jump">Official Verification Sources ↓</a>
+        <span class="ref-separator">·</span>
+        <a href="{{ '/methodology/' | relative_url }}" class="ref-sources-jump">Methodology &amp; Review →</a>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  {% if airport.terminals and airport.terminals.size > 0 %}
+  <!-- Checkpoint Terminals & Locations -->
+  <section aria-labelledby="terminals-heading" style="margin-top:2.5rem;">
+    <h2 id="terminals-heading" style="font-size:1.2rem; margin-bottom:0.75rem;">Terminal Security Checkpoints</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1rem;">
+      {% for term in airport.terminals %}
+      <div
+        style="border:1px solid var(--border-light); border-radius:var(--radius-sm); padding:1rem; background:var(--bg-primary);">
+        <div style="font-weight:700; font-size:0.95rem; margin-bottom:0.35rem; color:var(--text-primary);">{{ term.name
+          }}</div>
+        <div style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.25rem;"><strong
+            style="font-family:var(--font-mono); font-size:0.8rem; text-transform:uppercase; color:var(--text-muted);">Location:</strong>
+          {{ term.location }}</div>
+        <div style="font-size:0.85rem; color:var(--text-secondary);"><strong
+            style="font-family:var(--font-mono); font-size:0.8rem; text-transform:uppercase; color:var(--text-muted);">Serves:</strong>
+          {{ term.serves }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- REGIONAL HAZARDS & CONFISCATION ALERTS -->
+  {% if airport.regional_hazards and airport.regional_hazards.size > 0 %}
+  <section class="hazard-box" aria-labelledby="hazards-heading">
+    <h2 id="hazards-heading">Regional Souvenirs &amp; Confiscation Hazards</h2>
+    <p style="color:var(--text-secondary); font-size:0.9rem;">
+      Security officers at {{ airport.name }} confiscate hundreds of local holiday products weekly due to liquid rules.
+      Review this item inventory before packing:
+    </p>
+
+    <div class="hazard-table-wrapper">
+      <table class="hazard-table">
+        <thead>
+          <tr>
+            <th style="width:28%;">Item &amp; Category</th>
+            <th style="width:18%;">Risk Level</th>
+            <th style="width:30%;">Enforcement Rule</th>
+            <th style="width:24%;">Passenger Advice</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for hazard in airport.regional_hazards %}
+          <tr>
+            <td>
+              <div class="item-name">{{ hazard.name }}</div>
+              <div class="item-cat">{{ hazard.category }}</div>
+            </td>
+            <td>
+              {% if hazard.confiscation_risk == 'critical' %}
+              <span class="badge badge-solid">CRITICAL RISK</span>
+              {% elsif hazard.confiscation_risk == 'high' %}
+              <span class="badge badge-solid">HIGH RISK</span>
+              {% else %}
+              <span class="badge badge-outline">LOW RISK</span>
+              {% endif %}
+            </td>
+            <td>{{ hazard.reason }}</td>
+            <td><strong>{{ hazard.advice }}</strong></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- CONGESTION RHYTHMS & SURGE WINDOWS -->
+  {% if airport.congestion_rhythms %}
+  <section aria-labelledby="rhythms-heading">
+    <h2 id="rhythms-heading">Charter Rhythms &amp; Peak Congestion Bands</h2>
+    {% if airport.congestion_rhythms.summary %}
+    <p style="color:var(--text-secondary); font-size:0.9rem;">
+      {{ airport.congestion_rhythms.summary }}
+    </p>
+    {% endif %}
+
+    <div class="rhythm-grid">
+      {% for window in airport.congestion_rhythms.peak_windows %}
+      <div class="rhythm-card">
+        <div class="rhythm-days">{{ window.days | join: ", " }}</div>
+        <div class="rhythm-hours">Peak: {{ window.hours }}</div>
+        <div class="rhythm-meter">
+          <span>Surge Level:</span>
+          {% if window.severity == 'extreme' %}
+          <span class="badge badge-solid">■■■■■ EXTREME</span>
+          {% elsif window.severity == 'high' %}
+          <span class="badge badge-solid">■■■■□ HIGH</span>
+          {% else %}
+          <span class="badge badge-outline">■■■□□ MODERATE</span>
+          {% endif %}
+        </div>
+        <div class="rhythm-driver">
+          <strong>Driver:</strong> {{ window.driver }}
+        </div>
+        {% if window.recommended_arrival_lead_time_hours %}
+        <div
+          style="margin-top:0.6rem; font-size:0.8rem; font-family:var(--font-mono); border-top:1px solid var(--border-light); padding-top:0.4rem;">
+          Target Arrival: <strong>{{ window.recommended_arrival_lead_time_hours }}h prior</strong>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% else %}
+  <!-- Fallback Header for non-airport posts -->
+  <header class="airport-header">
+    <h1 class="airport-title">{{ page.title }}</h1>
+    <div class="airport-meta-bar">
+      {% if page.date %}
+      <span class="meta-item"><span class="meta-label">Published:</span> {{ page.date | date: "%B %d, %Y" }}</span>
+      {% endif %}
+      {% if page.last_ai_gathered %}
+      <span class="meta-item"><span class="meta-label">AI Gathered:</span> {{ page.last_ai_gathered }}</span>
+      {% endif %}
+      {% if page.last_human_reviewed %}
+      <span class="meta-item"><span class="meta-label">Human Review:</span> {{ page.last_human_reviewed }}</span>
+      {% endif %}
+      <span class="meta-item"><a href="{{ '/methodology/' | relative_url }}" class="meta-date-link">Methodology &amp;
+          Review</a></span>
+    </div>
+  </header>
+  {% endif %}
+
+  <!-- EDITORIAL POST CONTENT -->
+  {% assign stripped_content = content | strip %}
+  {% if stripped_content != "" %}
+  <div class="post-content">
+    {{ content }}
+  </div>
+  {% endif %}
+
+  <!-- DATA VERIFICATION & AUDIT SECTION -->
+  {% assign ai_gathered = airport.last_ai_gathered | default: page.last_ai_gathered %}
+  {% assign human_reviewed = airport.last_human_reviewed | default: page.last_human_reviewed %}
+  {% if ai_gathered or human_reviewed %}
+  <section class="verification-section" aria-labelledby="verification-heading">
+    <div
+      style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.75rem;">
+      <h2 id="verification-heading" style="margin:0; border:none; padding:0;">Data Verification &amp; Review Status</h2>
+      <a href="{{ '/methodology/' | relative_url }}"
+        style="font-family:var(--font-mono); font-size:0.8rem; text-decoration:underline;">
+        How our AI &amp; Human Review Process Works →
+      </a>
+    </div>
+    <p class="section-description">
+      Airport security protocols and screening technologies change frequently. To maintain data integrity, checkpoint
+      rules undergo continuous automated AI monitoring from official civil aviation sources, coupled with strict human
+      editorial verification. Learn more about our <a href="{{ '/methodology/' | relative_url }}">two-stage AI
+        collection and
+        human review methodology</a>.
+    </p>
+
+    <div class="verification-grid">
+      <div class="verification-card">
+        <div class="verification-card-header">
+          <span class="badge badge-outline">AI Automated Ingestion</span>
+          <span class="verification-status-tag">Active Monitoring</span>
+        </div>
+        <div class="verification-date-label">Last AI Data Gathered</div>
+        <div class="verification-date-value">
+          {% if ai_gathered %}
+          <time datetime="{{ ai_gathered }}">{{ ai_gathered | date: "%B %d, %Y" }}</time>
+          {% else %}
+          <span style="color:var(--text-muted);">Not recorded</span>
+          {% endif %}
+        </div>
+        <p class="verification-card-desc">
+          Automated collection and cross-checking of operator directives, regulatory changes, and passenger screening
+          guidelines. <a href="{{ '/methodology/#stage-1-ai-ingestion' | relative_url }}"
+            style="color:inherit; text-decoration:underline;">See AI collection workflow →</a>
+        </p>
+      </div>
+
+      <div class="verification-card">
+        <div class="verification-card-header">
+          <span class="badge badge-solid">Human Editorial Review</span>
+          <span class="verification-status-tag">Verified</span>
+        </div>
+        <div class="verification-date-label">Last Reviewed by Human</div>
+        <div class="verification-date-value">
+          {% if human_reviewed %}
+          <time datetime="{{ human_reviewed }}">{{ human_reviewed | date: "%B %d, %Y" }}</time>
+          {% else %}
+          <span style="color:var(--text-muted);">Pending review</span>
+          {% endif %}
+        </div>
+        <p class="verification-card-desc">
+          Manual validation and editorial sign-off against primary operator notices, published airport handbooks, and
+          traveler reports. <a href="{{ '/methodology/#stage-2-human-review' | relative_url }}"
+            style="color:inherit; text-decoration:underline;">See human review protocol →</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="methodology-banner">
+      <div style="font-size:0.85rem; color:var(--text-secondary);">
+        <strong>Quality Standard:</strong> Automated AI tools monitor official civil aviation bodies daily; human
+        editors verify all rule updates prior to publication.
+      </div>
+      <a href="{{ '/methodology/' | relative_url }}" class="badge badge-outline"
+        style="text-decoration:none; padding:0.35rem 0.75rem; font-size:0.75rem;">
+        Read Full Methodology &amp; Audit Protocol →
+      </a>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- DATA REFERENCES & OFFICIAL SOURCES -->
+  {% if airport.data_references and airport.data_references.size > 0 %}
+  <section style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border-light);"
+    aria-labelledby="sources-heading">
+    <div
+      style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.75rem;">
+      <h3 id="sources-heading"
+        style="font-size:0.95rem; text-transform:uppercase; font-family:var(--font-mono); color:var(--text-muted); margin:0;">
+        Official Directives &amp; Verification Sources
+      </h3>
+      <a href="{{ '/methodology/#official-sources' | relative_url }}"
+        style="font-family:var(--font-mono); font-size:0.75rem; text-decoration:underline; color:var(--text-muted);">
+        How We Source Official Data →
+      </a>
+    </div>
+    <ul class="ref-list">
+      {% for ref in airport.data_references %}
+      <li class="ref-item">
+        <span class="ref-type">[{{ ref.type | replace: "_", " " }}]</span>
+        <a href="{{ ref.url }}" target="_blank" rel="noopener noreferrer">{{ ref.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+</article>

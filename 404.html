@@ -1,0 +1,300 @@
+---
+layout: default
+title: "404 — Checkpoint Not Found"
+description: "The requested airport checkpoint guide or terminal page could not be located. Search seeded airports or return to the directory."
+permalink: /404.html
+---
+
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+  <a href="{{ site.baseurl }}/">Home</a>
+  <span class="breadcrumb-separator" aria-hidden="true">/</span>
+  <span aria-current="page">404 Checkpoint Not Found</span>
+</nav>
+
+<!-- Hero Error Card -->
+<section class="error-hero" aria-labelledby="error-heading">
+  <div class="error-hero-header">
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <span class="site-logo-symbol" aria-hidden="true">▲</span>
+      <span>Radar Status: Off-Course // Route Diverted</span>
+    </div>
+    <span style="font-family: var(--font-mono);">ERR_CHECKPOINT_404</span>
+  </div>
+
+  <div class="error-hero-body">
+    <div class="error-status-badge">
+      <span aria-hidden="true">●</span> Status 404 · Unreachable Checkpoint
+    </div>
+
+    <div class="error-display-code" aria-hidden="true">404</div>
+
+    <h1 id="error-heading" class="error-hero-title">
+      Checkpoint Not Found
+    </h1>
+
+    <p class="error-hero-desc">
+      The airport checkpoint guide, terminal protocol, or page you were navigating to does not exist, has been renumbered, or is currently off-radar.
+    </p>
+
+    <!-- Dynamic Path Display (Safe Client-Side Extraction) -->
+    <div class="error-path-indicator" id="error-path-container" style="display: none;">
+      <span>Diverted route:</span>
+      <code id="error-missing-path"></code>
+    </div>
+
+    <!-- Primary Recovery Actions -->
+    <div class="error-actions-group">
+      <a href="{{ site.baseurl }}/" class="btn-action-primary">
+        ← Return to Airport Directory
+      </a>
+      <a href="{{ site.baseurl }}/pmi-palma-de-mallorca/" class="btn-action-secondary">
+        Featured Guide: Palma (PMI)
+      </a>
+      <a href="{{ site.baseurl }}/methodology/" class="btn-action-secondary">
+        Verification Methodology
+      </a>
+      <a href="{{ site.baseurl }}/#rules" class="btn-action-secondary">
+        EU 100ml Liquid Rule
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Wayfinding & Airport Search -->
+<search class="error-search-section">
+  <h2 class="error-search-title">Locate an Airport Checkpoint Guide</h2>
+  <p class="error-search-subtitle">
+    Filter seeded holiday airports by name, city, island, IATA code (e.g. PMI, TFS, IBZ), or ICAO code.
+  </p>
+
+  <form class="error-search-form" id="airport-search-form" onsubmit="return false;" role="search">
+    <div class="error-search-input-wrap">
+      <label for="airport-search-input" class="visually-hidden">Search airport checkpoint database</label>
+      <input
+        type="search"
+        id="airport-search-input"
+        class="error-search-input"
+        placeholder="Type airport name, IATA code (e.g. PMI, TFS, HER), or city..."
+        autocomplete="off"
+        spellcheck="false"
+        aria-describedby="airport-search-hint"
+      >
+      <button
+        type="button"
+        id="search-clear-btn"
+        class="error-search-clear"
+        aria-label="Clear airport search query"
+      >&times;</button>
+    </div>
+  </form>
+
+  <span id="airport-search-hint" class="visually-hidden">Results filter dynamically as you type.</span>
+  <div id="airport-search-live-status" class="visually-hidden" aria-live="polite"></div>
+</search>
+
+<!-- Seeded Holiday Airport Checkpoints Directory -->
+<section class="error-directory-section" aria-labelledby="directory-heading" style="margin-bottom: 2.5rem;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+    <h2 id="directory-heading" style="font-size: 1.3rem; margin: 0; border: none; padding: 0;">
+      Seeded Holiday Airport Checkpoints
+    </h2>
+    <span id="airport-count-badge" class="badge badge-muted">
+      {{ site.data.airports | size }} Verified Hubs
+    </span>
+  </div>
+
+  <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+    Direct links to verified security rules, 3D CT scanner readiness, and regional confiscation hazards:
+  </p>
+
+  <div class="airport-list" id="airport-results-list">
+    {% for airport_hash in site.data.airports %}
+    {% assign code = airport_hash[0] %}
+    {% assign apt = airport_hash[1] %}
+    {% assign airport_post = site.posts | where: "airport_code", code | first %}
+    <a
+      href="{% if airport_post %}{{ airport_post.url | relative_url }}{% else %}{{ site.baseurl }}/#airport-{{ code | downcase }}{% endif %}"
+      class="airport-card"
+      data-code="{{ apt.code | downcase }}"
+      data-icao="{{ apt.icao | downcase }}"
+      data-name="{{ apt.name | downcase }}"
+      data-city="{{ apt.city | downcase }}"
+      data-island="{{ apt.island | downcase }}"
+      data-country="{{ apt.country | downcase }}"
+    >
+      <div class="airport-card-top">
+        <span class="badge badge-solid">{{ apt.code }}</span>
+        <span class="badge badge-muted">{{ apt.country_code }}</span>
+      </div>
+      <div class="airport-card-name">{{ apt.name }}</div>
+      <div class="airport-card-location">{{ apt.city }}, {{ apt.island }} ({{ apt.region }})</div>
+      <div class="airport-card-status">
+        <span>{{ apt.operator }}</span>
+        <span>{% if apt.scanner_status.liquids_in_bag %}Liquids In{% elsif apt.checkpoint_rules.liquids.max_single_container %}Liquids {{ apt.checkpoint_rules.liquids.max_single_container }} Out{% elsif apt.checkpoint_rules.liquids.max_single_container_ml %}Liquids {{ apt.checkpoint_rules.liquids.max_single_container_ml }}ml Out{% else %}Liquids Out{% endif %}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <!-- Empty Search Results State -->
+  <div id="error-empty-state" class="error-empty-state">
+    <div class="error-empty-state-title">No Matching Checkpoint Guides Found</div>
+    <p class="error-empty-state-text" id="empty-state-message">
+      We couldn't find a seeded airport checkpoint guide matching your query.
+    </p>
+    <button
+      type="button"
+      id="reset-search-btn"
+      class="badge badge-solid"
+      style="padding: 0.5rem 1rem; cursor: pointer; border: none; font-size: 0.85rem;"
+    >
+      Reset Filter &amp; Show All Airports
+    </button>
+  </div>
+</section>
+
+<!-- Verification & Guidance Notice -->
+<section style="margin-top: 2rem;">
+  <div class="callout" style="border-left-width: 5px;">
+    <div class="callout-title">Looking for an Unlisted Airport or Reporting an Issue?</div>
+    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.5rem;">
+      Airport security protocols and 3D CT scanner deployments vary by terminal, concourse, and lane. If you followed a broken link or need screening guidance for an airport not yet in our index, review our <a href="{{ site.baseurl }}/methodology/">Data Methodology &amp; Review Process</a> to see how we verify official Aena, Fraport, EASA, and EC directives.
+    </p>
+    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0;">
+      Always follow direct verbal instructions from screening officers at the security checkpoint.
+    </p>
+  </div>
+</section>
+
+<!-- Client-Side Wayfinding Script -->
+<script>
+  (function() {
+    // 1. Safely display the requested missing path if available
+    try {
+      var currentPath = window.location.pathname;
+      var pathContainer = document.getElementById('error-path-container');
+      var pathCode = document.getElementById('error-missing-path');
+      if (currentPath && currentPath !== '/404.html' && currentPath !== '/404' && currentPath !== '/') {
+        pathCode.textContent = currentPath;
+        pathContainer.style.display = 'inline-flex';
+      }
+    } catch (e) {
+      // Graceful degradation
+    }
+
+    // 2. Real-time Airport Filter
+    var searchInput = document.getElementById('airport-search-input');
+    var clearBtn = document.getElementById('search-clear-btn');
+    var resetBtn = document.getElementById('reset-search-btn');
+    var airportList = document.getElementById('airport-results-list');
+    var emptyState = document.getElementById('error-empty-state');
+    var emptyMsg = document.getElementById('empty-state-message');
+    var liveStatus = document.getElementById('airport-search-live-status');
+    var countBadge = document.getElementById('airport-count-badge');
+    var cards = airportList ? airportList.getElementsByClassName('airport-card') : [];
+    var totalCount = cards.length;
+
+    function filterAirports(query) {
+      var q = (query || '').trim().toLowerCase();
+      var visibleCount = 0;
+
+      if (clearBtn) {
+        clearBtn.style.display = q.length > 0 ? 'block' : 'none';
+      }
+
+      for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        var code = card.getAttribute('data-code') || '';
+        var icao = card.getAttribute('data-icao') || '';
+        var name = card.getAttribute('data-name') || '';
+        var city = card.getAttribute('data-city') || '';
+        var island = card.getAttribute('data-island') || '';
+        var country = card.getAttribute('data-country') || '';
+
+        var matches = !q ||
+          code.indexOf(q) !== -1 ||
+          icao.indexOf(q) !== -1 ||
+          name.indexOf(q) !== -1 ||
+          city.indexOf(q) !== -1 ||
+          island.indexOf(q) !== -1 ||
+          country.indexOf(q) !== -1;
+
+        if (matches) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      }
+
+      if (visibleCount === 0) {
+        emptyState.style.display = 'block';
+        emptyMsg.textContent = 'No seeded airports match "' + q + '". Check spelling or search by city or 3-letter IATA code.';
+      } else {
+        emptyState.style.display = 'none';
+      }
+
+      if (countBadge) {
+        countBadge.textContent = visibleCount === totalCount
+          ? totalCount + ' Verified Hubs'
+          : visibleCount + ' of ' + totalCount + ' Airports';
+      }
+
+      if (liveStatus) {
+        if (!q) {
+          liveStatus.textContent = 'Showing all ' + totalCount + ' seeded airports.';
+        } else {
+          liveStatus.textContent = visibleCount + ' airports found matching ' + q + '.';
+        }
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        filterAirports(this.value);
+      });
+
+      // Handle Enter / Escape keys
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          this.value = '';
+          filterAirports('');
+        }
+      });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function() {
+        if (searchInput) {
+          searchInput.value = '';
+          searchInput.focus();
+        }
+        filterAirports('');
+      });
+    }
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function() {
+        if (searchInput) {
+          searchInput.value = '';
+          searchInput.focus();
+        }
+        filterAirports('');
+      });
+    }
+
+    // 3. Read initial query parameter (?q=... or ?code=...) if present
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var initialQuery = params.get('q') || params.get('code') || '';
+      if (initialQuery && searchInput) {
+        searchInput.value = initialQuery;
+        filterAirports(initialQuery);
+      }
+    } catch (e) {
+      // URLSearchParams not supported or not present
+    }
+  })();
+</script>
+

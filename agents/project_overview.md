@@ -19,7 +19,7 @@ Existing airport security resources suffer from three fatal flaws:
 
 ### The Strategic Edge
 Instead of fragile live APIs or monolithic descriptions, this portal delivers:
-- **Granular Scanner Status by Terminal & Lane**: Crystal-clear "In Bag" vs. "Out of Bag" directives based on verified scanner hardware rollouts.
+- **Granular Checkpoint Status by Terminal & Lane**: Crystal-clear "In Bag" vs. "Out of Bag" directives based on verified checkpoint screening rules.
 - **The "Return Trip" Itinerary Checker**: Prevents passenger confiscation heartbreak by comparing the outbound and return airport security thresholds.
 - **Long-Tail High-Intent Item Query SEO**: Dominates high-anxiety search terms (e.g., *"Can I bring Greek olive oil through Rhodes airport security?"*, *"Santorini airport vape carry-on rules"*, *"Feta cheese brine hand luggage"*).
 - **Charter/Peak Rhythm Congestion Modeling**: Reliable, schedule-based peak congestion bands based on known European holiday flight banks (e.g., Friday/Sunday afternoon UK/Germany charter turnaround waves).
@@ -61,6 +61,12 @@ Holidaymakers do not search for *"EASA Regulation 300/2008"*. They search:
 Rather than publishing fake or stale "12-minute wait" live badges that disappoint users:
 - We identify seasonal charter turnaround bands (e.g., Ibiza Sunday 14:00–18:00, Rhodes Saturday 10:00–15:00).
 - Users receive actionable preparation advice: *"Peak Congestion Band: High surge due to simultaneous UK & German package flight turnarounds. Allow $\ge$ 45 mins for security."*
+
+### Reference Sites & Category Benchmarks (Planning Context)
+The following existing websites and tools were evaluated during planning as category reference points and benchmarks:
+- **FlightQueue** ([https://flightqueue.com/](https://flightqueue.com/)) – Shared as an example of an existing queue/wait-time tracker, which focuses primarily on airport security checkpoint wait times and queue estimates.
+- **Airport Liquids** ([https://www.airportliquids.com/](https://www.airportliquids.com/)) – Shared alongside FlightQueue as a site covering airport liquid regulations.
+- **MiFlight** – Mentioned as another example in the queue-tracking category that relies primarily on app-based or crowd-sourced wait times.
 
 ---
 
@@ -108,7 +114,7 @@ Every airport terminal/lane page renders the standardized **Checkpoint Card** UI
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ 📍 PALMA DE MALLORCA (PMI) — MAIN TERMINAL (TERMINAL A/C) STANDARD LANES   │
-│ Status as of: May 2026 | Scanner Hardware: Phased CT Rollout in Progress    │
+│ Status as of: May 2026 | Checkpoint Directive: Standard 100ml Prep        │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │ 📦 SCANNER TECH & ELECTRONICS                                               │
 │    • Laptops & Tablets: OUT OF BAG (Legacy lanes) / IN BAG (Lane 4-6 CT)    │
@@ -180,7 +186,9 @@ Data is managed cleanly in structured JSON files under `_data/` (or `src/content
   "island": "Mallorca",
   "country": "Spain",
   "operator": "Aena",
-  "last_verified": "2026-05-01",
+  "last_verified": "2026-11-09",
+  "last_ai_gathered": "2026-11-09",
+  "last_human_reviewed": "2026-11-09",
   "terminals": [
     {
       "name": "Main Terminal - Departures",

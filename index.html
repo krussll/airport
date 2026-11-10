@@ -1,0 +1,138 @@
+---
+layout: default
+title: "Verified Checkpoint & Scanner Guidance"
+---
+
+<!-- Hero Section -->
+<section style="margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-dark);">
+  <div
+    style="font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem;">
+    AIRPORT SECURITY CHECKPOINT DIRECTORY · MVP V1
+  </div>
+  <h1 style="font-size: 2.75rem; line-height: 1.15; margin-bottom: 1rem; max-width: 800px;">
+    Precision checkpoint guidance. Know before you reach the trays.
+  </h1>
+  <p
+    style="font-size: 1.15rem; color: var(--text-secondary); max-width: 720px; line-height: 1.6; margin-bottom: 1.5rem;">
+    Airports are mid-transition to next-gen 3D CT scanners, while standard lanes still enforce legacy rules. We track
+    verified checkpoint rules, 100ml limits, and regional souvenir confiscation risks.
+  </p>
+  <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+    <a href="{{ site.baseurl }}/pmi-palma-de-mallorca/" class="badge badge-solid"
+      style="padding: 0.5rem 1rem; font-size: 0.85rem; text-decoration: none;">
+      Review Featured Guide: Palma de Mallorca (PMI) →
+    </a>
+    <a href="{{ site.baseurl }}/cfu-corfu/" class="badge badge-solid"
+      style="padding: 0.5rem 1rem; font-size: 0.85rem; text-decoration: none;">
+      Review Guide: Corfu (CFU) →
+    </a>
+    <a href="{{ site.baseurl }}/methodology/" class="badge badge-outline"
+      style="padding: 0.5rem 1rem; font-size: 0.85rem; text-decoration: none;">
+      Data Methodology &amp; Review Process →
+    </a>
+    <span class="badge badge-muted" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+      11 Holiday Airports Seeded
+    </span>
+  </div>
+</section>
+
+<!-- Featured Post / Airport Card -->
+<section style="margin-bottom: 3rem;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+    <h2 style="font-size: 1.3rem; margin: 0; border: none; padding: 0;">Featured Guide for UI Review</h2>
+    <span class="badge badge-solid">NEW GUIDE</span>
+  </div>
+
+  <div
+    style="border: 2px solid var(--border-dark); border-radius: var(--radius-md); padding: 1.5rem; background: var(--bg-primary);">
+    <div
+      style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
+          <span class="airport-code-badge" style="font-size: 1rem;">PMI</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">LEPA · Spain /
+            Balearics</span>
+        </div>
+        <h3 style="font-size: 1.5rem; margin: 0 0 0.4rem 0;">
+          <a href="{{ site.baseurl }}/pmi-palma-de-mallorca/" style="text-decoration: none; color: inherit;">
+            Palma de Mallorca Airport Security & CT Scanner Guide
+          </a>
+        </h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0; max-width: 650px;">
+          Comprehensive checkpoint review covering Aena's 3D CT trial lanes, strict 100ml liquid enforcement, laptop
+          separation, peak Friday & Sunday charter turnover rhythms, and olive oil seizure alerts.
+        </p>
+      </div>
+
+      <div style="text-align: right; min-width: 140px;">
+        <div
+          style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">
+          Checkpoint Rules</div>
+        <div style="font-weight: 700; font-size: 0.95rem;">Standard 100ml Prep</div>
+        <div style="margin-top: 0.5rem; display: flex; gap: 0.35rem; justify-content: flex-end; flex-wrap: wrap;">
+          <span class="badge badge-outline">Liquids: 100ml Out</span>
+          <span class="badge badge-muted">Laptops: Out</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 1rem; margin-top: 1rem;">
+      <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">
+        Verified against Aena Official Directives & EU Transportation Mandates
+      </span>
+      <a href="{{ site.baseurl }}/pmi-palma-de-mallorca/"
+        style="font-weight: 700; font-size: 0.875rem; text-decoration: none;">
+        Read Complete Security Guide →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Corridor Airports Directory -->
+<section style="margin-bottom: 3rem;">
+  <div style="margin-bottom: 1rem;">
+    <h2 style="font-size: 1.3rem; margin: 0 0 0.35rem 0; border: none; padding: 0;">MVP Geographic Corridor: European
+      Holiday Islands</h2>
+    <p style="font-size: 0.875rem; color: var(--text-secondary);">
+      11 high-volume tourist island airports seeded in our database with verified checkpoint rules.
+    </p>
+  </div>
+
+  <div class="airport-list">
+    {% for airport_hash in site.data.airports %}
+    {% assign code = airport_hash[0] %}
+    {% assign apt = airport_hash[1] %}
+    {% assign airport_post = site.posts | where: "airport_code", code | first %}
+    <a href="{% if airport_post %}{{ airport_post.url | relative_url }}{% else %}#{% endif %}"
+      class="airport-card">
+      <div class="airport-card-top">
+        <span class="badge badge-solid">{{ apt.code }}</span>
+        <span class="badge badge-muted">{{ apt.country_code }}</span>
+      </div>
+      <div class="airport-card-name">{{ apt.name }}</div>
+      <div class="airport-card-location">{{ apt.city }}, {{ apt.island }} ({{ apt.region }})</div>
+      <div class="airport-card-status">
+        <span>{{ apt.operator }}</span>
+        <span>{% if apt.scanner_status.liquids_in_bag %}Liquids In{% elsif apt.checkpoint_rules.liquids.max_single_container %}Liquids {{ apt.checkpoint_rules.liquids.max_single_container }} Out{% elsif apt.checkpoint_rules.liquids.max_single_container_ml %}Liquids {{ apt.checkpoint_rules.liquids.max_single_container_ml }}ml Out{% else %}Liquids Out{% endif %}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Universal Policy Alert Callout -->
+<section style="margin-bottom: 3rem;" id="rules">
+  <div class="callout" style="border-left-width: 6px;">
+    <div class="callout-title" style="font-size: 1rem;">Universal EU Mandate Alert: 100ml Liquid Limit Re-Imposed</div>
+    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.5rem;">
+      As of September 1, 2024, the European Commission temporarily reinstated the mandatory <strong>100ml
+        single-container limit</strong> across all airports in the European Union, including those equipped with
+      state-of-the-art C3 3D CT scanners.
+    </p>
+    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0;">
+      Even if your departure airport allows liquids to remain inside your bag during screening, no individual container
+      exceeding 100ml is permitted through security checkpoints.
+    </p>
+  </div>
+</section>

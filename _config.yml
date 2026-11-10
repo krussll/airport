@@ -1,0 +1,30 @@
+title: Airport Security Hub
+tagline: Airport Security & Scanner Checkpoint Guide
+description: Authoritative, granular airport security checkpoint guidance worldwide. Verify 3D CT scanner rollout status, 100ml liquid limits, electronics rules, and local souvenir hazard warnings.
+url: ""
+baseurl: ""
+
+# Permalinks
+permalink: /:title/
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Collections & Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Exclusions
+exclude:
+  - agents/
+  - README.md
+  - Gemfile.lock
+  - vendor/
+

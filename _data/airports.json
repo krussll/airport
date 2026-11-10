@@ -11,22 +11,24 @@
     "country_code": "ES",
     "operator": "Aena",
     "timezone": "Europe/Madrid",
-    "last_verified": "2026-05-01",
+    "last_verified": "2026-11-09",
+    "last_ai_gathered": "2026-11-09",
+    "last_human_reviewed": "2026-11-09",
     "status_summary": "Major hub currently undergoing multi-phase terminal remodelling. Aena is piloting 3D CT scanners on select lanes, but standard passenger lanes require standard liquid and laptop removal.",
     "scanner_status": {
-      "hardware_type": "2D_XRAY_HYBRID_TRIAL",
-      "hardware_label": "Phased 3D CT Scanner Trials (Select Lanes) / Standard 2D X-Ray (Dominant)",
       "ct_scanners_deployed": true,
       "ct_scanners_universal": false,
       "liquids_in_bag": false,
       "electronics_in_bag": false,
       "temporary_eu_100ml_cap_applies": true,
-      "passenger_instruction": "Pack as if using legacy 2D X-ray: keep liquids under 100ml in a single 1L clear resealable bag and remove laptops and tablets at the checkpoint unless specifically instructed otherwise by security staff."
+      "passenger_instruction": "Remove all liquids (<strong>max 100ml</strong> in a <strong>clear 1L bag</strong>) and place laptops and tablets in <strong>separate trays</strong> unless instructed otherwise by security staff."
     },
     "checkpoint_rules": {
       "liquids": {
         "max_single_container_ml": 100,
+        "max_single_container": "100ml",
         "max_total_litres": 1.0,
+        "max_total_capacity": "1l",
         "clear_bag_required": true,
         "bag_dimensions": "Approx. 20cm x 20cm (1L capacity)",
         "remove_from_carry_on": true,
@@ -35,6 +37,7 @@
       "electronics": {
         "laptops_out": true,
         "tablets_out": true,
+        "max_power_bank_wh": 100,
         "cameras_and_drones": "Place large camera bodies or drone chassis in separate plastic trays.",
         "power_banks": "Cabin baggage only. Must not exceed 100Wh without airline authorization (max 160Wh with approval). Prohibited in checked hold luggage."
       },
@@ -83,21 +86,31 @@
       "summary": "Intense seasonal peaks driven by concentrated UK and German charter package turnaround schedules.",
       "peak_windows": [
         {
-          "days": ["Friday", "Sunday"],
+          "days": [
+            "Friday",
+            "Sunday"
+          ],
           "hours": "11:30 - 17:30",
           "severity": "extreme",
           "recommended_arrival_lead_time_hours": 2.5,
           "driver": "Mass European charter arrivals/departures and weekend turnover."
         },
         {
-          "days": ["Saturday"],
+          "days": [
+            "Saturday"
+          ],
           "hours": "09:00 - 14:30",
           "severity": "high",
           "recommended_arrival_lead_time_hours": 2.5,
           "driver": "Holiday villa turnover flight waves."
         },
         {
-          "days": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "days": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
           "hours": "06:00 - 08:30",
           "severity": "moderate",
           "recommended_arrival_lead_time_hours": 2.0,
@@ -110,8 +123,7 @@
         "terminal_id": "central-departures",
         "name": "Main Terminal (Central Security Hall)",
         "location": "Level 4 Departures",
-        "serves": "All Modules (A, B, C, D)",
-        "scanner_type": "2D X-Ray (with selective 3D CT trial lanes)"
+        "serves": "All Modules (A, B, C, D)"
       }
     ],
     "data_references": [
@@ -122,17 +134,17 @@
       },
       {
         "title": "Aena Passenger Security Controls & Hand Luggage Rules",
-        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "url": "https://www.aena.es/en/passengers/baggage-controls/security-control.html",
         "type": "official_security_policy"
       },
       {
         "title": "Aena Luggage Rules & Prohibited Items",
-        "url": "https://www.aena.es/en/passengers/baggage/hand-luggage.html",
+        "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
         "type": "official_baggage_policy"
       },
       {
         "title": "European Commission Re-imposition of 100ml Limit on C3 Scanners (Sept 1, 2024)",
-        "url": "https://transport.ec.europa.eu/news-events/news/aviation-security-eu-temporarily-reintroduces-restrictions-liquid-screening-airports-c3-scanners-2024-07-31_en",
+        "url": "https://transport.ec.europa.eu/news-events/news/commission-enforces-temporary-restrictions-liquid-screening-certain-eu-airports-2024-07-31_en",
         "type": "regulatory_authority"
       }
     ]
@@ -149,22 +161,24 @@
     "country_code": "ES",
     "operator": "Aena",
     "timezone": "Europe/Madrid",
-    "last_verified": "2026-05-01",
+    "last_verified": "2026-11-08",
+    "last_ai_gathered": "2026-11-09",
+    "last_human_reviewed": "2026-11-08",
     "status_summary": "Single-terminal seasonal island airport experiencing extreme peak congestion during summer clubbing weekends. Standard 2D X-ray screening on all regular passenger lanes.",
     "scanner_status": {
-      "hardware_type": "2D_XRAY",
-      "hardware_label": "Standard Conventional 2D X-Ray Screening",
       "ct_scanners_deployed": false,
       "ct_scanners_universal": false,
       "liquids_in_bag": false,
       "electronics_in_bag": false,
       "temporary_eu_100ml_cap_applies": true,
-      "passenger_instruction": "Strict removal required: take out all liquids (under 100ml in transparent 1L bag) and place laptops, tablets, and gaming consoles in separate security trays."
+      "passenger_instruction": "Remove all liquids (<strong>max 100ml</strong> in a <strong>clear 1L bag</strong>) and place laptops, tablets, and large electronics in <strong>separate trays</strong>."
     },
     "checkpoint_rules": {
       "liquids": {
         "max_single_container_ml": 100,
+        "max_single_container": "100ml",
         "max_total_litres": 1.0,
+        "max_total_capacity": "1l",
         "clear_bag_required": true,
         "bag_dimensions": "20cm x 20cm (1L capacity)",
         "remove_from_carry_on": true,
@@ -173,6 +187,7 @@
       "electronics": {
         "laptops_out": true,
         "tablets_out": true,
+        "max_power_bank_wh": 100,
         "cameras_and_drones": "Separate trays for professional cameras, DJ equipment, and audio gear.",
         "power_banks": "Cabin baggage only (max 100Wh). Prohibited in checked luggage."
       },
@@ -213,14 +228,19 @@
       "summary": "Sharply concentrated congestion corresponding to weekend club event check-outs and European charter turnaround schedules.",
       "peak_windows": [
         {
-          "days": ["Sunday", "Monday"],
+          "days": [
+            "Sunday",
+            "Monday"
+          ],
           "hours": "14:00 - 20:00",
           "severity": "extreme",
           "recommended_arrival_lead_time_hours": 2.5,
           "driver": "Massive post-weekend departure wave of European clubbers and package travelers."
         },
         {
-          "days": ["Friday"],
+          "days": [
+            "Friday"
+          ],
           "hours": "16:00 - 21:00",
           "severity": "high",
           "recommended_arrival_lead_time_hours": 2.0,
@@ -233,8 +253,7 @@
         "terminal_id": "main",
         "name": "Main Passenger Terminal",
         "location": "First Floor Departures",
-        "serves": "All domestic and international departures",
-        "scanner_type": "Conventional 2D X-ray"
+        "serves": "All domestic and international departures"
       }
     ],
     "data_references": [
@@ -245,12 +264,12 @@
       },
       {
         "title": "Aena Passenger Security Controls Information",
-        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "url": "https://www.aena.es/en/passengers/baggage-controls/security-control.html",
         "type": "official_security_policy"
       },
       {
         "title": "Aena Hand Luggage Guidelines",
-        "url": "https://www.aena.es/en/passengers/baggage/hand-luggage.html",
+        "url": "https://www.aena.es/en/passengers/baggage-controls/hand-luggage.html",
         "type": "official_baggage_policy"
       }
     ]
@@ -259,30 +278,32 @@
     "code": "MAH",
     "icao": "LEMH",
     "name": "Menorca Airport",
-    "local_name": "Aeropuerto de Menorca (Mahón)",
-    "city": "Mahón",
+    "local_name": "Aeropuerto de Menorca (Mah\u00f3n)",
+    "city": "Mah\u00f3n",
     "island": "Menorca",
     "region": "Balearic Islands",
     "country": "Spain",
     "country_code": "ES",
     "operator": "Aena",
     "timezone": "Europe/Madrid",
-    "last_verified": "2026-05-01",
+    "last_verified": "2026-11-08",
+    "last_ai_gathered": "2026-11-09",
+    "last_human_reviewed": "2026-11-08",
     "status_summary": "Relaxed family-oriented island airport with conventional 2D X-ray security. High summer weekend surges during package holiday turnaround hours.",
     "scanner_status": {
-      "hardware_type": "2D_XRAY",
-      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
       "ct_scanners_deployed": false,
       "ct_scanners_universal": false,
       "liquids_in_bag": false,
       "electronics_in_bag": false,
       "temporary_eu_100ml_cap_applies": true,
-      "passenger_instruction": "Standard screening: liquids under 100ml in transparent 1L zip bag and laptops/tablets removed into trays."
+      "passenger_instruction": "Remove all liquids (<strong>max 100ml</strong> in a <strong>clear 1L bag</strong>) and place laptops, tablets, and large electronics in <strong>separate trays</strong>."
     },
     "checkpoint_rules": {
       "liquids": {
         "max_single_container_ml": 100,
+        "max_single_container": "100ml",
         "max_total_litres": 1.0,
+        "max_total_capacity": "1l",
         "clear_bag_required": true,
         "bag_dimensions": "20cm x 20cm (1L capacity)",
         "remove_from_carry_on": true,
@@ -291,6 +312,7 @@
       "electronics": {
         "laptops_out": true,
         "tablets_out": true,
+        "max_power_bank_wh": 100,
         "cameras_and_drones": "Tablets, e-readers, and laptops out.",
         "power_banks": "Cabin baggage only, max 100Wh."
       },
@@ -304,15 +326,15 @@
     "regional_hazards": [
       {
         "item_slug": "local-spirits",
-        "name": "Gin Xoriguer (Menorcan Mahón Gin)",
+        "name": "Gin Xoriguer (Menorcan Mah\u00f3n Gin)",
         "category": "Alcohol / Liquid",
         "confiscation_risk": "critical",
-        "reason": "Iconic clay and glass bottles of Mahón gin are confiscated if over 100ml in hand luggage.",
+        "reason": "Iconic clay and glass bottles of Mah\u00f3n gin are confiscated if over 100ml in hand luggage.",
         "advice": "Pack bottles in checked luggage or buy post-security at Menorca duty-free."
       },
       {
         "item_slug": "feta-cheese",
-        "name": "Mahón-Menorca Cheese (Formatge de Maó)",
+        "name": "Mah\u00f3n-Menorca Cheese (Formatge de Ma\u00f3)",
         "category": "Food / Cheese",
         "confiscation_risk": "moderate",
         "reason": "Hard/cured varieties are solid and permitted. Soft or semi-cured cheese packed with oils/liquids may trigger confiscation.",
@@ -331,7 +353,10 @@
       "summary": "Pronounced family holiday changeover waves on Fridays, Saturdays, and Sundays.",
       "peak_windows": [
         {
-          "days": ["Friday", "Sunday"],
+          "days": [
+            "Friday",
+            "Sunday"
+          ],
           "hours": "10:30 - 15:30",
           "severity": "high",
           "recommended_arrival_lead_time_hours": 2.0,
@@ -344,8 +369,7 @@
         "terminal_id": "main",
         "name": "Main Terminal",
         "location": "First Floor Departures",
-        "serves": "All commercial flights",
-        "scanner_type": "Conventional 2D X-ray"
+        "serves": "All commercial flights"
       }
     ],
     "data_references": [
@@ -356,7 +380,7 @@
       },
       {
         "title": "Aena Security Controls Guide",
-        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "url": "https://www.aena.es/en/passengers/baggage-controls/security-control.html",
         "type": "official_security_policy"
       }
     ]
@@ -365,7 +389,7 @@
     "code": "TFS",
     "icao": "GCTS",
     "name": "Tenerife South Airport",
-    "local_name": "Aeropuerto de Tenerife Sur (Reina Sofía)",
+    "local_name": "Aeropuerto de Tenerife Sur (Reina Sof\u00eda)",
     "city": "Granadilla de Abona",
     "island": "Tenerife",
     "region": "Canary Islands",
@@ -373,22 +397,24 @@
     "country_code": "ES",
     "operator": "Aena",
     "timezone": "Atlantic/Canary",
-    "last_verified": "2026-05-01",
+    "last_verified": "2026-11-08",
+    "last_ai_gathered": "2026-11-09",
+    "last_human_reviewed": "2026-11-08",
     "status_summary": "The Canary Islands' primary international tourist gateway. Operates standard 2D X-ray security lanes with intense Tuesday and Friday charter congestion spikes.",
     "scanner_status": {
-      "hardware_type": "2D_XRAY",
-      "hardware_label": "Conventional Multi-Lane 2D X-Ray Screening",
       "ct_scanners_deployed": false,
       "ct_scanners_universal": false,
       "liquids_in_bag": false,
       "electronics_in_bag": false,
       "temporary_eu_100ml_cap_applies": true,
-      "passenger_instruction": "Remove liquids under 100ml in transparent 1L plastic bag and take out all laptops, tablets, and gaming consoles into trays."
+      "passenger_instruction": "Remove all liquids (<strong>max 100ml</strong> in a <strong>clear 1L bag</strong>) and place laptops, tablets, and large electronics in <strong>separate trays</strong>."
     },
     "checkpoint_rules": {
       "liquids": {
         "max_single_container_ml": 100,
+        "max_single_container": "100ml",
         "max_total_litres": 1.0,
+        "max_total_capacity": "1l",
         "clear_bag_required": true,
         "bag_dimensions": "20cm x 20cm (1L capacity)",
         "remove_from_carry_on": true,
@@ -397,6 +423,7 @@
       "electronics": {
         "laptops_out": true,
         "tablets_out": true,
+        "max_power_bank_wh": 100,
         "cameras_and_drones": "Separate trays for laptops, tablets, and handheld electronics.",
         "power_banks": "Cabin baggage only, strictly prohibited in checked hold luggage."
       },
@@ -418,7 +445,7 @@
       },
       {
         "item_slug": "olive-oil",
-        "name": "Mojo Picón / Mojo Verde Sauces",
+        "name": "Mojo Pic\u00f3n / Mojo Verde Sauces",
         "category": "Food / Liquid",
         "confiscation_risk": "critical",
         "reason": "Canarian mojo sauce is classified as a liquid/gel. Jars exceeding 100ml are confiscated.",
@@ -445,14 +472,19 @@
       "summary": "Distinct weekly rhythm dictated by UK and northern European tour operator flight schedules.",
       "peak_windows": [
         {
-          "days": ["Tuesday", "Friday"],
+          "days": [
+            "Tuesday",
+            "Friday"
+          ],
           "hours": "11:00 - 17:00",
           "severity": "extreme",
           "recommended_arrival_lead_time_hours": 2.5,
           "driver": "Major UK package holiday changeover (Jet2, TUI, EasyJet, British Airways charter banks)."
         },
         {
-          "days": ["Sunday"],
+          "days": [
+            "Sunday"
+          ],
           "hours": "12:00 - 18:00",
           "severity": "high",
           "recommended_arrival_lead_time_hours": 2.5,
@@ -465,8 +497,7 @@
         "terminal_id": "main",
         "name": "Main Passenger Terminal",
         "location": "First Floor Departures",
-        "serves": "All international and inter-island flights",
-        "scanner_type": "Conventional 2D X-ray"
+        "serves": "All international and inter-island flights"
       }
     ],
     "data_references": [
@@ -477,7 +508,7 @@
       },
       {
         "title": "Aena Security Screening Instructions",
-        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "url": "https://www.aena.es/en/passengers/baggage-controls/security-control.html",
         "type": "official_security_policy"
       }
     ]
@@ -486,30 +517,32 @@
     "code": "ACE",
     "icao": "GCRR",
     "name": "Lanzarote Airport",
-    "local_name": "Aeropuerto César Manrique-Lanzarote",
-    "city": "San Bartolomé / Arrecife",
+    "local_name": "Aeropuerto C\u00e9sar Manrique-Lanzarote",
+    "city": "San Bartolom\u00e9 / Arrecife",
     "island": "Lanzarote",
     "region": "Canary Islands",
     "country": "Spain",
     "country_code": "ES",
     "operator": "Aena",
     "timezone": "Atlantic/Canary",
-    "last_verified": "2026-05-01",
+    "last_verified": "2026-11-07",
+    "last_ai_gathered": "2026-11-09",
+    "last_human_reviewed": "2026-11-07",
     "status_summary": "Two terminals: Terminal 1 serves all international and mainland Spanish flights; Terminal 2 serves inter-island flights. Conventional 2D X-ray screening.",
     "scanner_status": {
-      "hardware_type": "2D_XRAY",
-      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
       "ct_scanners_deployed": false,
       "ct_scanners_universal": false,
       "liquids_in_bag": false,
       "electronics_in_bag": false,
       "temporary_eu_100ml_cap_applies": true,
-      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and bulky electronic devices."
+      "passenger_instruction": "Remove all liquids (<strong>max 100ml</strong> in a <strong>clear 1L bag</strong>) and place laptops, tablets, and large electronics in <strong>separate trays</strong>."
     },
     "checkpoint_rules": {
       "liquids": {
         "max_single_container_ml": 100,
+        "max_single_container": "100ml",
         "max_total_litres": 1.0,
+        "max_total_capacity": "1l",
         "clear_bag_required": true,
         "bag_dimensions": "20cm x 20cm (1L capacity)",
         "remove_from_carry_on": true,
@@ -518,6 +551,7 @@
       "electronics": {
         "laptops_out": true,
         "tablets_out": true,
+        "max_power_bank_wh": 100,
         "cameras_and_drones": "Electronic items must be removed into trays.",
         "power_banks": "Carry-on only, strictly prohibited in checked hold baggage."
       },
@@ -531,7 +565,7 @@
     "regional_hazards": [
       {
         "item_slug": "local-spirits",
-        "name": "Malvasía Volcanic Wine & Canarian Rum",
+        "name": "Malvas\u00eda Volcanic Wine & Canarian Rum",
         "category": "Alcohol / Liquid",
         "confiscation_risk": "critical",
         "reason": "Famous La Geria volcanic vineyard wine bottles exceed 100ml and cannot pass security.",
@@ -558,7 +592,10 @@
       "summary": "Major Thursday and Sunday spikes due to UK and Irish package charter changeovers.",
       "peak_windows": [
         {
-          "days": ["Thursday", "Sunday"],
+          "days": [
+            "Thursday",
+            "Sunday"
+          ],
           "hours": "11:30 - 16:30",
           "severity": "extreme",
           "recommended_arrival_lead_time_hours": 2.5,
@@ -571,15 +608,13 @@
         "terminal_id": "t1",
         "name": "Terminal 1 (T1)",
         "location": "Upper Level Departures",
-        "serves": "All international, UK, and mainland Spain flights",
-        "scanner_type": "Conventional 2D X-ray"
+        "serves": "All international, UK, and mainland Spain flights"
       },
       {
         "terminal_id": "t2",
         "name": "Terminal 2 (T2)",
         "location": "Ground Level",
-        "serves": "Inter-Canary island flights (Binter, Canaryfly)",
-        "scanner_type": "Conventional 2D X-ray"
+        "serves": "Inter-Canary island flights (Binter, Canaryfly)"
       }
     ],
     "data_references": [
@@ -590,7 +625,7 @@
       },
       {
         "title": "Aena Passenger Security Control Regulations",
-        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "url": "https://www.aena.es/en/passengers/baggage-controls/security-control.html",
         "type": "official_security_policy"
       }
     ]
@@ -607,22 +642,24 @@
     "country_code": "ES",
     "operator": "Aena",
     "timezone": "Atlantic/Canary",
-    "last_verified": "2026-05-01",
+    "last_verified": "2026-11-07",
+    "last_ai_gathered": "2026-11-09",
+    "last_human_reviewed": "2026-11-07",
     "status_summary": "Single modern terminal catering heavily to European water sports enthusiasts and package tourists. Conventional 2D X-ray security checkpoint.",
     "scanner_status": {
-      "hardware_type": "2D_XRAY",
-      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
       "ct_scanners_deployed": false,
       "ct_scanners_universal": false,
       "liquids_in_bag": false,
       "electronics_in_bag": false,
       "temporary_eu_100ml_cap_applies": true,
-      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and drone batteries."
+      "passenger_instruction": "Remove all liquids (<strong>max 100ml</strong> in a <strong>clear 1L bag</strong>) and place laptops, tablets, and large electronics in <strong>separate trays</strong>."
     },
     "checkpoint_rules": {
       "liquids": {
         "max_single_container_ml": 100,
+        "max_single_container": "100ml",
         "max_total_litres": 1.0,
+        "max_total_capacity": "1l",
         "clear_bag_required": true,
         "bag_dimensions": "20cm x 20cm (1L capacity)",
         "remove_from_carry_on": true,
@@ -631,6 +668,7 @@
       "electronics": {
         "laptops_out": true,
         "tablets_out": true,
+        "max_power_bank_wh": 100,
         "cameras_and_drones": "Drones and action cameras out into trays.",
         "power_banks": "Cabin baggage only, max 100Wh."
       },
@@ -671,7 +709,10 @@
       "summary": "Intense Wednesday, Saturday, and Sunday peaks aligned with German and UK package flight turnovers.",
       "peak_windows": [
         {
-          "days": ["Wednesday", "Saturday"],
+          "days": [
+            "Wednesday",
+            "Saturday"
+          ],
           "hours": "11:00 - 16:30",
           "severity": "high",
           "recommended_arrival_lead_time_hours": 2.5,
@@ -684,8 +725,7 @@
         "terminal_id": "main",
         "name": "Main Terminal",
         "location": "Upper Level Departures",
-        "serves": "All commercial operations",
-        "scanner_type": "Conventional 2D X-ray"
+        "serves": "All commercial operations"
       }
     ],
     "data_references": [
@@ -696,7 +736,7 @@
       },
       {
         "title": "Aena Security Checkpoint Regulations",
-        "url": "https://www.aena.es/en/passengers/airport-safety/security-controls.html",
+        "url": "https://www.aena.es/en/passengers/baggage-controls/security-control.html",
         "type": "official_security_policy"
       }
     ]
@@ -713,22 +753,24 @@
     "country_code": "GR",
     "operator": "HCAA (Hellenic Civil Aviation Authority)",
     "timezone": "Europe/Athens",
-    "last_verified": "2026-05-01",
+    "last_verified": "2026-11-08",
+    "last_ai_gathered": "2026-11-09",
+    "last_human_reviewed": "2026-11-08",
     "status_summary": "Crete's primary airport and one of Greece's busiest. Aging terminal infrastructure operating legacy 2D X-ray systems with notoriously high summer confiscation rates for Cretan olive oil, honey, and raki.",
     "scanner_status": {
-      "hardware_type": "2D_XRAY",
-      "hardware_label": "Legacy Conventional 2D X-Ray Screening",
       "ct_scanners_deployed": false,
       "ct_scanners_universal": false,
       "liquids_in_bag": false,
       "electronics_in_bag": false,
       "temporary_eu_100ml_cap_applies": true,
-      "passenger_instruction": "Strict manual unpack: All liquids must be in 100ml containers inside a clear 1L resealable bag. Laptops, tablets, and large electronics must be placed in separate trays."
+      "passenger_instruction": "Remove all liquids (<strong>max 100ml</strong> in a <strong>clear 1L bag</strong>) and place laptops, tablets, and large electronics in <strong>separate trays</strong>."
     },
     "checkpoint_rules": {
       "liquids": {
         "max_single_container_ml": 100,
+        "max_single_container": "100ml",
         "max_total_litres": 1.0,
+        "max_total_capacity": "1l",
         "clear_bag_required": true,
         "bag_dimensions": "20cm x 20cm (1L capacity)",
         "remove_from_carry_on": true,
@@ -737,6 +779,7 @@
       "electronics": {
         "laptops_out": true,
         "tablets_out": true,
+        "max_power_bank_wh": 100,
         "cameras_and_drones": "Laptops and tablets in separate individual trays.",
         "power_banks": "Cabin baggage only, max 100Wh. Forbidden in checked hold luggage."
       },
@@ -785,14 +828,20 @@
       "summary": "Severe congestion during peak summer charter flight turnaround waves, exacerbated by compact terminal space.",
       "peak_windows": [
         {
-          "days": ["Tuesday", "Friday", "Sunday"],
+          "days": [
+            "Tuesday",
+            "Friday",
+            "Sunday"
+          ],
           "hours": "10:00 - 18:00",
           "severity": "extreme",
           "recommended_arrival_lead_time_hours": 3.0,
           "driver": "Mass charter turnaround banks for UK, German, French, and Polish package flights."
         },
         {
-          "days": ["Saturday"],
+          "days": [
+            "Saturday"
+          ],
           "hours": "11:00 - 17:00",
           "severity": "extreme",
           "recommended_arrival_lead_time_hours": 3.0,
@@ -805,19 +854,18 @@
         "terminal_id": "main",
         "name": "Main Passenger Terminal",
         "location": "Ground Floor Departures",
-        "serves": "All domestic and international departures",
-        "scanner_type": "Legacy 2D X-ray"
+        "serves": "All domestic and international departures"
       }
     ],
     "data_references": [
       {
         "title": "HCAA Official Heraklion Airport Directory",
-        "url": "http://www.ypa.gr/en/our-airports/kratikos-aerolimenas-hrakleioy-n-kazantzakhs-kahk",
+        "url": "https://hcaa.gov.gr/en",
         "type": "official_operator"
       },
       {
         "title": "Hellenic Civil Aviation Passenger Security Regulations",
-        "url": "http://www.ypa.gr/en/passenger-info/security-rules/",
+        "url": "https://hcaa.gov.gr/en/domains/epibates",
         "type": "official_security_policy"
       },
       {
@@ -839,22 +887,24 @@
     "country_code": "GR",
     "operator": "Fraport Greece",
     "timezone": "Europe/Athens",
-    "last_verified": "2026-05-01",
+    "last_verified": "2026-11-08",
+    "last_ai_gathered": "2026-11-09",
+    "last_human_reviewed": "2026-11-08",
     "status_summary": "Modernised terminal managed by Fraport Greece. Operates conventional 2D X-ray security lanes with strict confiscation of local olive oils and raki.",
     "scanner_status": {
-      "hardware_type": "2D_XRAY",
-      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
       "ct_scanners_deployed": false,
       "ct_scanners_universal": false,
       "liquids_in_bag": false,
       "electronics_in_bag": false,
       "temporary_eu_100ml_cap_applies": true,
-      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and e-readers."
+      "passenger_instruction": "Remove all liquids (<strong>max 100ml</strong> in a <strong>clear 1L bag</strong>) and place laptops, tablets, and large electronics in <strong>separate trays</strong>."
     },
     "checkpoint_rules": {
       "liquids": {
         "max_single_container_ml": 100,
+        "max_single_container": "100ml",
         "max_total_litres": 1.0,
+        "max_total_capacity": "1l",
         "clear_bag_required": true,
         "bag_dimensions": "20cm x 20cm (1L capacity)",
         "remove_from_carry_on": true,
@@ -863,6 +913,7 @@
       "electronics": {
         "laptops_out": true,
         "tablets_out": true,
+        "max_power_bank_wh": 100,
         "cameras_and_drones": "Electronic items out into separate trays.",
         "power_banks": "Cabin baggage only, max 100Wh."
       },
@@ -903,7 +954,10 @@
       "summary": "Major Nordic, UK, and German charter turnover peaks on Wednesdays, Fridays, and Saturdays.",
       "peak_windows": [
         {
-          "days": ["Wednesday", "Saturday"],
+          "days": [
+            "Wednesday",
+            "Saturday"
+          ],
           "hours": "10:30 - 16:00",
           "severity": "high",
           "recommended_arrival_lead_time_hours": 2.5,
@@ -916,8 +970,7 @@
         "terminal_id": "main",
         "name": "Main Passenger Terminal",
         "location": "Upper Level Departures",
-        "serves": "All commercial operations",
-        "scanner_type": "Conventional 2D X-ray"
+        "serves": "All commercial operations"
       }
     ],
     "data_references": [
@@ -928,12 +981,12 @@
       },
       {
         "title": "Fraport Greece Airport Security Guidelines",
-        "url": "https://www.chq-airport.gr/en/passenger-info/airport-security/",
+        "url": "https://www.chq-airport.gr/en/category-detailed/ctg_id-72/nd_id-501",
         "type": "official_security_policy"
       },
       {
         "title": "Fraport Greece Dangerous Goods & Liquids Rules",
-        "url": "https://www.fraport-greece.com/eng/passenger-information/airport-security",
+        "url": "https://www.fraport-greece.com/",
         "type": "operator_corporate_policy"
       }
     ]
@@ -950,22 +1003,24 @@
     "country_code": "GR",
     "operator": "Fraport Greece",
     "timezone": "Europe/Athens",
-    "last_verified": "2026-05-01",
+    "last_verified": "2026-11-07",
+    "last_ai_gathered": "2026-11-09",
+    "last_human_reviewed": "2026-11-07",
     "status_summary": "Extensively upgraded by Fraport Greece with modernised check-in and security hall, but utilizing conventional 2D X-ray lanes requiring liquid and laptop extraction.",
     "scanner_status": {
-      "hardware_type": "2D_XRAY",
-      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
       "ct_scanners_deployed": false,
       "ct_scanners_universal": false,
       "liquids_in_bag": false,
       "electronics_in_bag": false,
       "temporary_eu_100ml_cap_applies": true,
-      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and gaming devices."
+      "passenger_instruction": "Remove all liquids (<strong>max 100ml</strong> in a <strong>clear 1L bag</strong>) and place laptops, tablets, and large electronics in <strong>separate trays</strong>."
     },
     "checkpoint_rules": {
       "liquids": {
         "max_single_container_ml": 100,
+        "max_single_container": "100ml",
         "max_total_litres": 1.0,
+        "max_total_capacity": "1l",
         "clear_bag_required": true,
         "bag_dimensions": "20cm x 20cm (1L capacity)",
         "remove_from_carry_on": true,
@@ -974,6 +1029,7 @@
       "electronics": {
         "laptops_out": true,
         "tablets_out": true,
+        "max_power_bank_wh": 100,
         "cameras_and_drones": "Electronic items out into separate trays.",
         "power_banks": "Cabin baggage only, max 100Wh."
       },
@@ -1014,7 +1070,11 @@
       "summary": "Massive Wednesday, Saturday, and Sunday peaks aligned with UK, German, and Polish charter turnaround waves.",
       "peak_windows": [
         {
-          "days": ["Wednesday", "Saturday", "Sunday"],
+          "days": [
+            "Wednesday",
+            "Saturday",
+            "Sunday"
+          ],
           "hours": "11:00 - 17:30",
           "severity": "extreme",
           "recommended_arrival_lead_time_hours": 2.5,
@@ -1027,8 +1087,7 @@
         "terminal_id": "main",
         "name": "Main Passenger Terminal",
         "location": "First Floor Departures",
-        "serves": "All domestic and international departures",
-        "scanner_type": "Conventional 2D X-ray"
+        "serves": "All domestic and international departures"
       }
     ],
     "data_references": [
@@ -1039,7 +1098,7 @@
       },
       {
         "title": "Fraport Greece Rhodes Security Information",
-        "url": "https://www.rho-airport.gr/en/passenger-info/airport-security/",
+        "url": "https://www.rho-airport.gr/en/category-detailed/ctg_id-268/nd_id-943",
         "type": "official_security_policy"
       }
     ]
@@ -1056,22 +1115,24 @@
     "country_code": "GR",
     "operator": "Fraport Greece",
     "timezone": "Europe/Athens",
-    "last_verified": "2026-05-01",
+    "last_verified": "2026-11-09",
+    "last_ai_gathered": "2026-11-09",
+    "last_human_reviewed": "2026-11-09",
     "status_summary": "Compact scenic island terminal upgraded by Fraport Greece with expanded security area, operating conventional 2D X-ray lanes. Severe peaks on Mondays and Fridays.",
     "scanner_status": {
-      "hardware_type": "2D_XRAY",
-      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
       "ct_scanners_deployed": false,
       "ct_scanners_universal": false,
       "liquids_in_bag": false,
       "electronics_in_bag": false,
       "temporary_eu_100ml_cap_applies": true,
-      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and e-readers."
+      "passenger_instruction": "Remove all liquids (<strong>max 100ml</strong> in a <strong>clear 1L bag</strong>) and place laptops, tablets, and large electronics in <strong>separate trays</strong>."
     },
     "checkpoint_rules": {
       "liquids": {
         "max_single_container_ml": 100,
+        "max_single_container": "100ml",
         "max_total_litres": 1.0,
+        "max_total_capacity": "1l",
         "clear_bag_required": true,
         "bag_dimensions": "20cm x 20cm (1L capacity)",
         "remove_from_carry_on": true,
@@ -1080,6 +1141,7 @@
       "electronics": {
         "laptops_out": true,
         "tablets_out": true,
+        "max_power_bank_wh": 100,
         "cameras_and_drones": "Electronic items out into separate trays.",
         "power_banks": "Cabin baggage only, max 100Wh."
       },
@@ -1108,19 +1170,46 @@
         "advice": "Pack securely in checked luggage or purchase post-security."
       },
       {
+        "item_slug": "feta-cheese",
+        "name": "Feta Cheese & Cheeses in Brine",
+        "category": "Dairy / Semi-Solid Food",
+        "confiscation_risk": "critical",
+        "reason": "Brine liquid causes automatic confiscation. Soft or spreadable cheeses (Tirokafteri, fresh soft goat cheese) are classified as liquids or gels.",
+        "advice": "Pack vacuum-sealed hard cheeses (Graviera) in hand luggage; pack feta in brine inside checked luggage."
+      },
+      {
+        "item_slug": "honey",
+        "name": "Greek Thyme Honey & Spoon Sweets",
+        "category": "Food / Viscous Liquid",
+        "confiscation_risk": "critical",
+        "reason": "Artisanal jars of Greek honey and traditional fruit preserves in syrup (Glyka tou Koutaliou) count as liquids under EU aviation screening rules.",
+        "advice": "Pack in checked hold luggage or buy certified sealed products airside."
+      },
+      {
         "item_slug": "sunscreen",
         "name": "Sunscreen & Tanning Lotions",
         "category": "Cosmetics / Liquid",
         "confiscation_risk": "critical",
-        "reason": "Containers $>100$ml confiscated.",
-        "advice": "Pack in checked luggage."
+        "reason": "Containers over 100ml are confiscated regardless of remaining contents.",
+        "advice": "Pack in checked luggage or decant into 100ml travel bottles."
+      },
+      {
+        "item_slug": "mandolato",
+        "name": "Mandolato & Sesame Pasteli (Corfu Nougat)",
+        "category": "Solid Confectionery",
+        "confiscation_risk": "low",
+        "reason": "Traditional Corfiot almond nougat and honey sesame bars are solid foods permitted through screening.",
+        "advice": "Permitted freely in carry-on baggage."
       }
     ],
     "congestion_rhythms": {
       "summary": "Monday and Friday peaks are legendary due to UK package holiday turnaround flight schedules.",
       "peak_windows": [
         {
-          "days": ["Monday", "Friday"],
+          "days": [
+            "Monday",
+            "Friday"
+          ],
           "hours": "10:30 - 17:00",
           "severity": "extreme",
           "recommended_arrival_lead_time_hours": 2.5,
@@ -1133,8 +1222,7 @@
         "terminal_id": "main",
         "name": "Main Passenger Terminal",
         "location": "First Floor Departures",
-        "serves": "All domestic and international departures",
-        "scanner_type": "Conventional 2D X-ray"
+        "serves": "All domestic and international departures"
       }
     ],
     "data_references": [
@@ -1145,8 +1233,13 @@
       },
       {
         "title": "Fraport Greece Corfu Security Information",
-        "url": "https://www.cfu-airport.gr/en/passenger-info/airport-security/",
+        "url": "https://www.cfu-airport.gr/en/category-detailed/ctg_id-533/nd_id-1559",
         "type": "official_security_policy"
+      },
+      {
+        "title": "Hellenic Civil Aviation Authority (HCAA) Passenger Directives",
+        "url": "https://hcaa.gov.gr/en/domains/epibates",
+        "type": "civil_aviation_authority"
       }
     ]
   },
@@ -1162,22 +1255,24 @@
     "country_code": "GR",
     "operator": "Fraport Greece",
     "timezone": "Europe/Athens",
-    "last_verified": "2026-05-01",
+    "last_verified": "2026-11-08",
+    "last_ai_gathered": "2026-11-09",
+    "last_human_reviewed": "2026-11-08",
     "status_summary": "Expanded terminal modernised by Fraport Greece. Handles immense tourist flows with conventional 2D X-ray screening. Frequent confiscation of Assyrtiko wine, Vinsanto, and fava pastes.",
     "scanner_status": {
-      "hardware_type": "2D_XRAY",
-      "hardware_label": "Conventional 2D Multi-View X-Ray Screening",
       "ct_scanners_deployed": false,
       "ct_scanners_universal": false,
       "liquids_in_bag": false,
       "electronics_in_bag": false,
       "temporary_eu_100ml_cap_applies": true,
-      "passenger_instruction": "Standard screening: separate liquids (under 100ml in transparent 1L bag) and remove laptops, tablets, and e-readers."
+      "passenger_instruction": "Remove all liquids (<strong>max 100ml</strong> in a <strong>clear 1L bag</strong>) and place laptops, tablets, and large electronics in <strong>separate trays</strong>."
     },
     "checkpoint_rules": {
       "liquids": {
         "max_single_container_ml": 100,
+        "max_single_container": "100ml",
         "max_total_litres": 1.0,
+        "max_total_capacity": "1l",
         "clear_bag_required": true,
         "bag_dimensions": "20cm x 20cm (1L capacity)",
         "remove_from_carry_on": true,
@@ -1186,6 +1281,7 @@
       "electronics": {
         "laptops_out": true,
         "tablets_out": true,
+        "max_power_bank_wh": 100,
         "cameras_and_drones": "Electronic items out into separate trays.",
         "power_banks": "Cabin baggage only, max 100Wh."
       },
@@ -1226,7 +1322,11 @@
       "summary": "Severe daily peak surges matching caldera tour check-outs, ferry transfers, and European charter flight rotations.",
       "peak_windows": [
         {
-          "days": ["Tuesday", "Friday", "Sunday"],
+          "days": [
+            "Tuesday",
+            "Friday",
+            "Sunday"
+          ],
           "hours": "11:00 - 16:30",
           "severity": "extreme",
           "recommended_arrival_lead_time_hours": 2.5,
@@ -1239,8 +1339,7 @@
         "terminal_id": "main",
         "name": "Main Passenger Terminal",
         "location": "First Floor Departures",
-        "serves": "All domestic and international departures",
-        "scanner_type": "Conventional 2D X-ray"
+        "serves": "All domestic and international departures"
       }
     ],
     "data_references": [
@@ -1251,7 +1350,7 @@
       },
       {
         "title": "Fraport Greece Santorini Security Information",
-        "url": "https://www.jtr-airport.gr/en/passenger-info/airport-security/",
+        "url": "https://www.jtr-airport.gr/en/category-detailed/ctg_id-433/nd_id-1328",
         "type": "official_security_policy"
       }
     ]

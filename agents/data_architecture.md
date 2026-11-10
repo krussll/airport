@@ -58,6 +58,8 @@ airport/
 | `country_code` | `string` | ISO 2-letter country code (`"ES"` or `"GR"`) |
 | `operator` | `string` | Governing operator (`"Aena"` or `"Fraport Greece"`) |
 | `last_verified` | `string` | YYYY-MM-DD verification date |
+| `last_ai_gathered` | `string` | YYYY-MM-DD date when automated AI tools last gathered and extracted data |
+| `last_human_reviewed` | `string` | YYYY-MM-DD date when human editorial team last reviewed and verified data |
 | `terminals` | `array` | List of terminal checkpoint zones |
 
 ### Terminal Object Schema:
@@ -66,8 +68,6 @@ airport/
   "terminal_id": "main",
   "name": "Main Terminal",
   "checkpoint_location": "Floor 2, Departures Hall",
-  "scanner_hardware": "2D_XRAY_HYBRID",
-  "scanner_hardware_label": "Phased 3D CT scanner rollout in progress",
   "ct_scanner_active": false,
   "electronics_rule": {
     "laptops_out": true,
@@ -78,7 +78,9 @@ airport/
   },
   "liquids_rule": {
     "max_container_ml": 100,
+    "max_single_container": "100ml",
     "max_total_litres": 1.0,
+    "max_total_capacity": "1l",
     "clear_bag_required": true,
     "remove_from_bag": true,
     "summary": "100ml limit strictly enforced. One transparent 1-liter plastic bag per passenger."
